@@ -2,79 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Подключение nestjs">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/counter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.prettierrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/README.MD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/types/common.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/types/entity.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/utils/history.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/validation/validationMessage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/BottomNavigation/BottomNavigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerDatePicker/ControllerDatePicker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerInput/ControllerTextField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerRadio/ControllerRadio.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/ButtonBlock/ButtonBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/InformationBlock/InformationBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/SettingsBlock/SettingsBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/EmptyCountBlock/EmptyCountBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/Notification/notification.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/common/styles/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Login/Login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/AppBar/AppBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/Button/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/Checkbox/Checkbox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/DatePicker/DatePicker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/Radio/Radio.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/TextField/TextField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/Typography/Typography.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/draft.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/firebaseInit.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/features/singOut.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/router/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/service-worker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/serviceWorkerRegistration.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/setupTests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/store/UserStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/theme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/common/utils/history.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/utils/history.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/draft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/firebaseInit.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/singOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/store/UserStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/UserStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/jest-e2e.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,8 +65,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\GrishinAnton\Projects\counter\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -176,7 +118,11 @@
       <workItem from="1628503931685" duration="406000" />
       <workItem from="1628508588804" duration="26000" />
       <workItem from="1629618063137" duration="514000" />
-      <workItem from="1629631799408" duration="221000" />
+      <workItem from="1629631799408" duration="570000" />
+      <workItem from="1629632750533" duration="1604000" />
+      <workItem from="1629701404010" duration="14000" />
+      <workItem from="1629969182384" duration="747000" />
+      <workItem from="1629981298967" duration="583000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -240,6 +186,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/server" />
+    </ignored-roots>
     <MESSAGE value="Первая версия карточки" />
     <MESSAGE value="Доработка минимальной версии отображающей информацию" />
     <MESSAGE value="Подключение firebase" />

@@ -19,6 +19,6 @@
     "baseUrl": "src"
   },
   "include": [
-    "app/src/"
+    "src/"
   ]
 }
