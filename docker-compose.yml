@@ -6,8 +6,6 @@ services:
     image: postgres:12
     env_file:
       - ./server/.env
-#    entrypoint:
-#      PG_DATA: /var/lib/postgresql/data
     ports:
       - 5432:5432
     volumes:
