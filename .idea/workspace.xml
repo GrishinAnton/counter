@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавил регистрация/авторизацию на сервере">
-      <change afterPath="$PROJECT_DIR$/server/src/auth/jwt-auth.guard.ts" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавил регистрация/авторизацию на сервере с защитой роута">
+      <change afterPath="$PROJECT_DIR$/server/src/exceptions/validation.exceptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/pipes/validation.pipes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +130,7 @@
       <workItem from="1629981298967" duration="3490000" />
       <workItem from="1629987113400" duration="2138000" />
       <workItem from="1630037392165" duration="3533000" />
-      <workItem from="1630153262594" duration="2840000" />
+      <workItem from="1630153262594" duration="4533000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -200,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630173671126</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Добавил регистрация/авторизацию на сервере с защитой роута">
+      <created>1630175884470</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1630175884470</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +240,8 @@
     <MESSAGE value="Почистил от firebase" />
     <MESSAGE value="инит постгре" />
     <MESSAGE value="Добавил регистрация/авторизацию на сервере" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил регистрация/авторизацию на сервере" />
+    <MESSAGE value="Добавил регистрация/авторизацию на сервере с защитой роута" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил регистрация/авторизацию на сервере с защитой роута" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
