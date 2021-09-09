@@ -7,7 +7,7 @@ class UserStore {
     makeAutoObservable(this);
   }
 
-  signIn = async () => {
+  login = async () => {
     try {
       const user ={}
       this.user = user;

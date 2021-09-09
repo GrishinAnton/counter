@@ -8,7 +8,7 @@ import { ERoutes } from 'router/config';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { observer } from 'mobx-react-lite';
 
-import Login from 'components/pages/Login/Login';
+import { Login } from 'components/pages/Login/Login';
 import { useHistory } from 'react-router';
 import UserStore from './store/UserStore';
 import Home from './components/pages/Home/Home';
@@ -16,10 +16,9 @@ import Home from './components/pages/Home/Home';
 export const App = observer(() => {
   const { user } = UserStore;
   const history = useHistory();
-  console.log(user, 'user');
 
   if (!user) {
-    history.push(ERoutes.SIGN_IN);
+   history.push(ERoutes.LOGIN)
   }
 
   return (
@@ -30,7 +29,7 @@ export const App = observer(() => {
             <Route path={ERoutes.HOME} exact>
               <Home />
             </Route>
-            <Route path={ERoutes.SIGN_IN}>
+            <Route path={ERoutes.LOGIN} >
               <Login />
             </Route>
             <Route path={ERoutes.CREATE_ENTITY}>
