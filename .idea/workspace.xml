@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление обработки ошибок">
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Login/Ui/LoginForm.tsx" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление экрана логина">
+      <change afterPath="$PROJECT_DIR$/app/src/features/auth/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/components/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/router/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/router/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/store/UserStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/UserStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -69,7 +68,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -137,7 +136,7 @@
       <workItem from="1630682950866" duration="180000" />
       <workItem from="1630911155183" duration="16000" />
       <workItem from="1631168503031" duration="2196000" />
-      <workItem from="1631171539398" duration="307000" />
+      <workItem from="1631171539398" duration="1995000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -223,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630177693259</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Добавление экрана логина">
+      <created>1631171909421</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1631171909421</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +262,8 @@
     <MESSAGE value="Добавил регистрация/авторизацию на сервере" />
     <MESSAGE value="Добавил регистрация/авторизацию на сервере с защитой роута" />
     <MESSAGE value="Добавление обработки ошибок" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление обработки ошибок" />
+    <MESSAGE value="Добавление экрана логина" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление экрана логина" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

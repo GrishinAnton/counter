@@ -8,6 +8,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/pickers": "^3.3.10",
+    "@openapitools/openapi-generator-cli": "^2.4.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -23,6 +24,7 @@
     "history": "4.9.0",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
+    "openapi-typescript-codegen": "^0.9.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.6.5",
@@ -52,7 +54,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "generate-openapi": "npx @openapitools/openapi-generator-cli generate -i http://localhost:5000/api-json -g typescript-axios -o src/api"
   },
   "eslintConfig": {
     "extends": [
@@ -90,5 +93,6 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.3.0"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

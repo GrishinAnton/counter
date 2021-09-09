@@ -11,6 +11,8 @@ import { Button } from '../../ui/Button/Button';
 import { ERoutes } from '../../../router/config';
 import { LoginForm } from './Ui/LoginForm';
 import { validationString } from '../../../common/validation/validationSchema';
+import { login } from '../../../features/auth/api';
+import { CreateUserDto } from '../../../api';
 
 const schema = object().shape({
   login: validationString,
@@ -31,7 +33,13 @@ export const Login = observer(() => {
 
   const onSubmitLogin = async () => {
     try {
-      await UserStore.login();
+      const createUserDto: CreateUserDto = {
+        email: '123@123.RU',
+        password: '1232212',
+      };
+      const loginData = await login({ createUserDto });
+
+      console.log(loginData, 'loginData');
     } catch (e) {
       throw Error('Произошла ошибка при входе');
     } finally {
