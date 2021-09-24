@@ -6,7 +6,6 @@ import { useHistory } from 'react-router';
 import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationString } from 'common/validation/validationSchema';
-import { appendData } from 'common/utils/localStorage';
 import { ERoutes } from 'router/config';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -46,7 +45,7 @@ const CreateEntity = () => {
       ...data,
     };
 
-    appendData(EActions.GET_COUNTS, params);
+    // appendData(EActions.GET_COUNTS, params);
     history.push(ERoutes.HOME);
     notification({ message: 'Сущность добавлена' });
   };

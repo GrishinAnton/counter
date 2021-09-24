@@ -1,5 +1,4 @@
 import { EEntityAction } from '../common/types/entity.types';
-import { updateCounter } from '../common/utils/localStorage';
 import { EActions } from './config';
 
 interface IUpdateEntityCounter {
@@ -8,5 +7,5 @@ interface IUpdateEntityCounter {
 }
 
 export const updateEntityCounter = ({ id, action }: IUpdateEntityCounter) => {
-  updateCounter({ field: EActions.GET_COUNTS, id, action });
+  // updateCounter({ field: EActions.GET_COUNTS, id, action });
 };

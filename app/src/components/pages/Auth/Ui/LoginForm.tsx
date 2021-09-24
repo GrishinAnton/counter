@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core';
 import React, { useMemo } from 'react';
 import { IFormField } from '../../../../common/types/common.types';
 import { ControllerTextField } from '../../../layout/ControllerComponent/ControllerInput/ControllerTextField';
@@ -6,11 +7,11 @@ export const LoginForm = () => {
   const loginForm: IFormField[] = useMemo(
     () => [
       {
-        label: 'Логин',
-        name: 'login',
+        label: 'Email',
+        name: 'email',
         type: 'text',
         required: true,
-        placeholder: 'Введите логин',
+        placeholder: 'Введите email',
         fieldType: 'input',
         disabled: false,
       },
@@ -30,7 +31,9 @@ export const LoginForm = () => {
   return (
     <>
       {loginForm.map(field => (
-        <ControllerTextField key={field.name} fieldProp={field} />
+        <Box mb={2} key={field.name}>
+          <ControllerTextField fieldProp={field} />
+        </Box>
       ))}
     </>
   );

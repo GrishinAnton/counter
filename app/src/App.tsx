@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateEntity from 'components/pages/Entity/CreateEntity/CreateEntity';
 import { ContainerApp } from 'components/ui/ContainerApp/ContainerApp';
 import { ToastContainer } from 'react-toastify';
-import { ERoutes } from 'router/config';
-
-import 'react-toastify/dist/ReactToastify.min.css';
-import { observer } from 'mobx-react-lite';
-
-import { Login } from 'components/pages/Login/Login';
 import { useHistory } from 'react-router';
+
+import { ERoutes } from 'router/config';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+import { observer } from 'mobx-react-lite';
+import { Auth } from 'components/pages/Auth/Auth';
 import UserStore from './store/UserStore';
 import Home from './components/pages/Home/Home';
 
@@ -18,7 +18,7 @@ export const App = observer(() => {
   const history = useHistory();
 
   if (!user) {
-   history.push(ERoutes.LOGIN)
+    history.push(ERoutes.LOGIN);
   }
 
   return (
@@ -29,8 +29,8 @@ export const App = observer(() => {
             <Route path={ERoutes.HOME} exact>
               <Home />
             </Route>
-            <Route path={ERoutes.LOGIN} >
-              <Login />
+            <Route path={ERoutes.LOGIN}>
+              <Auth />
             </Route>
             <Route path={ERoutes.CREATE_ENTITY}>
               <CreateEntity />
