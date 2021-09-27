@@ -1,4 +1,4 @@
-import { string, number } from 'yup';
+import { string, number, ref } from 'yup';
 import { validationMessage } from './validationMessage';
 
 export const validationString = string()
@@ -25,3 +25,5 @@ export const passwordValidation = string()
     'Пароль должен содержать заглавные и строчные буквы и хотя бы одну цифру',
   )
   .required(validationMessage.required);
+
+export const passwordValidationConfirm = string().oneOf([ref('password'), null], 'Пароли должны совпадать');

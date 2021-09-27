@@ -2,12 +2,16 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { object, ref, string } from 'yup';
+import { object } from 'yup';
 
 import _ from 'lodash';
 import { Button } from '../../../ui/Button/Button';
 import { AuthForm } from '../Ui/AuthForm';
-import { emailValidation, passwordValidation } from '../../../../common/validation/validationSchema';
+import {
+  emailValidation,
+  passwordValidation,
+  passwordValidationConfirm,
+} from '../../../../common/validation/validationSchema';
 import { register } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
 import { EAuthType } from '../Auth';
@@ -17,7 +21,7 @@ import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotifi
 const schema = object().shape({
   email: emailValidation,
   password: passwordValidation,
-  passwordConfirmation: string().oneOf([ref('password'), null], 'Пароли должны совпадать'),
+  passwordConfirmation: passwordValidationConfirm,
 });
 
 export const Register = () => {
@@ -35,11 +39,8 @@ export const Register = () => {
 
   const onSubmitRegister = async (data: CreateUserDto) => {
     try {
-      // const params = _.pick(data, ['email', 'password']);
-      const params = {
-        email: '2312312@1123123.ru',
-        password: 'asda',
-      };
+      const params = _.pick(data, ['email', 'password']);
+
       const registerData = await register({ createUserDto: params });
 
       if (registerData && registerData.token) {

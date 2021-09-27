@@ -6,14 +6,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
 import { Button } from '../../../ui/Button/Button';
 import { AuthForm } from '../Ui/AuthForm';
-import { emailValidation, validationString } from '../../../../common/validation/validationSchema';
+import { emailValidation, passwordValidationConfirm } from '../../../../common/validation/validationSchema';
 import { login } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
 import { EAuthType } from '../Auth';
+import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
+import { setData } from '../../../../common/utils/localStorage';
 
 const schema = object().shape({
   email: emailValidation,
-  password: validationString,
+  password: passwordValidationConfirm,
 });
 
 export const Login = observer(() => {
@@ -31,8 +33,12 @@ export const Login = observer(() => {
   const onSubmitLogin = async (data: CreateUserDto) => {
     try {
       const loginData = await login({ createUserDto: data });
+      if (loginData && loginData.token) {
+        setData('token', loginData.token);
+        history.push('/');
+      }
     } catch (e) {
-      throw Error('Произошла ошибка при входе');
+      ErrorNotification(e);
     }
   };
 

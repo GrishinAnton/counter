@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Рефактор">
-      <change afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ErrorNotification/ErrorNotification.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление регистрации">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/.openapi-generator/FILES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/layout/Notification/notification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/Notification/Notification.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/AuthForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/features/auth/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/auth/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +143,7 @@
       <workItem from="1631196392406" duration="67000" />
       <workItem from="1631299626760" duration="409000" />
       <workItem from="1632396174759" duration="2245000" />
-      <workItem from="1632469656604" duration="12315000" />
+      <workItem from="1632469656604" duration="15445000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -260,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632476919982</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Добавление регистрации">
+      <created>1632747529553</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1632747529553</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +292,8 @@
     <MESSAGE value="Добавление экрана логина" />
     <MESSAGE value="Подключение к проекту формы входа" />
     <MESSAGE value="Рефактор" />
-    <option name="LAST_COMMIT_MESSAGE" value="Рефактор" />
+    <MESSAGE value="Добавление регистрации" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление регистрации" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -19,7 +19,13 @@ export class AuthService {
 
   async login(userDto: CreateUserDto) {
     const user = await this.validateUser(userDto);
-    return this.generateToken(user);
+    const token = await this.generateToken(user);
+
+    return {
+      id: user.id,
+      email: user.email,
+      ...token,
+    };
   }
 
   async registration(userDto: CreateUserDto) {
@@ -30,7 +36,10 @@ export class AuthService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    const hashPassword = await bcrypt.hash(userDto.password, 5);
+    const hashPassword = await bcrypt.hash(
+      userDto.password,
+      bcrypt.genSaltSync(12),
+    );
     const user = await this.userService.createUser({
       ...userDto,
       password: hashPassword,
@@ -51,9 +60,8 @@ export class AuthService {
     const user = await this.userService.getUserByEmail(userDto.email);
     const passwordEquals = await bcrypt.compare(
       userDto.password,
-      userDto.password,
+      user.password,
     );
-
     if (user && passwordEquals) {
       return user;
     }
