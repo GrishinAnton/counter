@@ -15,3 +15,13 @@ export const emailValidation = string()
   .max(255, validationMessage.maxLength())
   .email(validationMessage.email)
   .required(validationMessage.required);
+
+export const passwordValidation = string()
+  .trim()
+  .min(8, 'Пароль должен содержать минимум 8 символов')
+  .max(20, 'Пароль должен содержать максимум 20 символов')
+  .matches(
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,20}$/gm,
+    'Пароль должен содержать заглавные и строчные буквы и хотя бы одну цифру',
+  )
+  .required(validationMessage.required);

@@ -5,10 +5,11 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
 import { Button } from '../../../ui/Button/Button';
-import { LoginForm } from '../Ui/LoginForm';
+import { AuthForm } from '../Ui/AuthForm';
 import { emailValidation, validationString } from '../../../../common/validation/validationSchema';
 import { login } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
+import { EAuthType } from '../Auth';
 
 const schema = object().shape({
   email: emailValidation,
@@ -39,7 +40,7 @@ export const Login = observer(() => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmitLogin)}>
-          <LoginForm />
+          <AuthForm type={EAuthType.LOGIN} />
         </form>
       </FormProvider>
 

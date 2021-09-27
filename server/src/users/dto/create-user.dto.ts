@@ -10,7 +10,7 @@ export class CreateUserDto {
 
   @ApiProperty({ example: '12345678', description: 'Пароль пользователя' })
   @IsString({ message: 'Должно быть строкой' })
-  @Length(6, 8, { message: 'Мин длина пароля 6 символов, максимальная 8' })
+  @Length(6, 20, { message: 'Мин длина пароля 6 символов, максимальная 20' })
   @IsNotEmpty({ message: 'Это поле обязательно' })
   readonly password: string;
 }

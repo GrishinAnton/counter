@@ -2,19 +2,22 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { object } from 'yup';
-import { Box } from 'components/ui/Box/Box';
+import { object, ref, string } from 'yup';
 
-import { CounterBlock } from '../../../ui/ContainerBlock/ContainerBlock';
+import _ from 'lodash';
 import { Button } from '../../../ui/Button/Button';
-import { LoginForm } from '../Ui/LoginForm';
-import { emailValidation, validationString } from '../../../../common/validation/validationSchema';
-import { login } from '../../../../features/auth/api';
+import { AuthForm } from '../Ui/AuthForm';
+import { emailValidation, passwordValidation } from '../../../../common/validation/validationSchema';
+import { register } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
+import { EAuthType } from '../Auth';
+import { setData } from '../../../../common/utils/localStorage';
+import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 
 const schema = object().shape({
   email: emailValidation,
-  password: validationString,
+  password: passwordValidation,
+  passwordConfirmation: string().oneOf([ref('password'), null], 'Пароли должны совпадать'),
 });
 
 export const Register = () => {
@@ -26,16 +29,25 @@ export const Register = () => {
     defaultValues: {
       email: '',
       password: '',
+      passwordConfirmation: '',
     },
   });
 
   const onSubmitRegister = async (data: CreateUserDto) => {
     try {
-      const loginData = await login({ createUserDto: data });
+      // const params = _.pick(data, ['email', 'password']);
+      const params = {
+        email: '2312312@1123123.ru',
+        password: 'asda',
+      };
+      const registerData = await register({ createUserDto: params });
 
-      console.log(loginData, 'loginData');
+      if (registerData && registerData.token) {
+        setData('token', registerData.token);
+        history.push('/');
+      }
     } catch (e) {
-      throw Error('Произошла ошибка при входе');
+      ErrorNotification(e);
     }
   };
 
@@ -43,7 +55,7 @@ export const Register = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmitRegister)}>
-          <LoginForm />
+          <AuthForm type={EAuthType.REGISTER} />
         </form>
       </FormProvider>
 

@@ -9,7 +9,7 @@ import { validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
 import { v4 as uuidv4 } from 'uuid';
 
-import { notification } from 'components/layout/Notification/notification';
+import { Notification } from 'components/layout/Notification/Notification';
 import { createEntityStyles } from '../common/styles/styles';
 import { Form } from '../Ui/Form';
 import { Header } from '../Ui/Header';
@@ -47,7 +47,7 @@ const CreateEntity = () => {
 
     // appendData(EActions.GET_COUNTS, params);
     history.push(ERoutes.HOME);
-    notification({ message: 'Сущность добавлена' });
+    Notification({ message: 'Сущность добавлена' });
   };
 
   return (

@@ -43,6 +43,19 @@ export interface CreateUserDto {
 /**
  * 
  * @export
+ * @interface RegisterUserResponseDto
+ */
+export interface RegisterUserResponseDto {
+    /**
+     * Токен пользователя
+     * @type {string}
+     * @memberof RegisterUserResponseDto
+     */
+    token: string;
+}
+/**
+ * 
+ * @export
  * @interface UserModel
  */
 export interface UserModel {
@@ -204,7 +217,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerRegistration(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async authControllerRegistration(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RegisterUserResponseDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerRegistration(createUserDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -244,7 +257,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerRegistration(createUserDto: CreateUserDto, options?: any): AxiosPromise<void> {
+        authControllerRegistration(createUserDto: CreateUserDto, options?: any): AxiosPromise<RegisterUserResponseDto> {
             return localVarFp.authControllerRegistration(createUserDto, options).then((request) => request(axios, basePath));
         },
         /**

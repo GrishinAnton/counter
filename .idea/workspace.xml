@@ -4,25 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Подключение к проекту формы входа">
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Auth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/ui/Box/Box.tsx" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Рефактор">
+      <change afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/components/layout/ErrorNotification/ErrorNotification.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/common/validation/validationMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/validation/validationMessage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/.openapi-generator/FILES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/Notification/notification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/Notification/Notification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/AuthForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Login/Ui/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/features/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/features/auth/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/auth/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/pipes/validation.pipes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/pipes/validation.pipes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -90,6 +88,7 @@
       <recent name="C:\Users\GrishinAnton\Projects\counter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/auth/dto" />
       <recent name="$PROJECT_DIR$/app/src/components/pages/Auth/Login" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="C:\Users\GrishinAnton\Projects\counter\src\features" />
@@ -154,7 +153,7 @@
       <workItem from="1631196392406" duration="67000" />
       <workItem from="1631299626760" duration="409000" />
       <workItem from="1632396174759" duration="2245000" />
-      <workItem from="1632469656604" duration="3140000" />
+      <workItem from="1632469656604" duration="12315000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -254,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631174054589</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Рефактор">
+      <created>1632476919982</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476919982</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +286,6 @@
     <MESSAGE value="Первая версия карточки" />
     <MESSAGE value="Доработка минимальной версии отображающей информацию" />
     <MESSAGE value="Подключение firebase" />
-    <MESSAGE value="Рефактор" />
     <MESSAGE value="Подключение nestjs" />
     <MESSAGE value="Почистил от firebase" />
     <MESSAGE value="инит постгре" />
@@ -289,7 +294,8 @@
     <MESSAGE value="Добавление обработки ошибок" />
     <MESSAGE value="Добавление экрана логина" />
     <MESSAGE value="Подключение к проекту формы входа" />
-    <option name="LAST_COMMIT_MESSAGE" value="Подключение к проекту формы входа" />
+    <MESSAGE value="Рефактор" />
+    <option name="LAST_COMMIT_MESSAGE" value="Рефактор" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
