@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление регистрации">
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление регистрации|авторизации">
+      <change afterPath="$PROJECT_DIR$/server/src/entity/dto/create-entity.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/validation/validationSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +143,8 @@
       <workItem from="1631196392406" duration="67000" />
       <workItem from="1631299626760" duration="409000" />
       <workItem from="1632396174759" duration="2245000" />
-      <workItem from="1632469656604" duration="15445000" />
+      <workItem from="1632469656604" duration="15592000" />
+      <workItem from="1632830515317" duration="4419000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -257,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632747529553</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Добавление регистрации|авторизации">
+      <created>1632753379764</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1632753379764</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +301,8 @@
     <MESSAGE value="Подключение к проекту формы входа" />
     <MESSAGE value="Рефактор" />
     <MESSAGE value="Добавление регистрации" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление регистрации" />
+    <MESSAGE value="Добавление регистрации|авторизации" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление регистрации|авторизации" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
