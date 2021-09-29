@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsDateString, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsDateString,
+  IsEnum,
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
 import { EEntityAction } from '../entity.model';
 
 export class CreateEntityDto {
@@ -27,35 +33,35 @@ export class CreateEntityDto {
   readonly finishDate: Date;
 
   @ApiProperty({
-    example: true, description: 'Учитывать время в дате или нет'
+    example: true,
+    description: 'Учитывать время в дате или нет',
   })
   @IsBoolean({
-    message: 'Это булево поле'
+    message: 'Это булево поле',
   })
   @IsNotEmpty({ message: 'Это поле обязательно' })
-  readonly time: boolean
+  readonly time: boolean;
 
   @ApiProperty({
     example: '2',
-    description: 'Стартовае значение сущности'
+    description: 'Стартовае значение сущности',
   })
   @IsString({
-    message: 'Это должна быть строка'
+    message: 'Это должна быть строка',
   })
   @IsNotEmpty({ message: 'Это поле обязательно' })
-  readonly startValue: string
+  readonly startValue: string;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,
     description: 'Увеличиваем или уменьшем значение сущности',
-    enum: EEntityAction
+    enum: EEntityAction,
   })
   @IsEnum(EEntityAction, {
-    message: 'Не соответствет валидации'
+    message: 'Не соответствет валидации',
   })
   @IsNotEmpty({
-    message: 'Это обязательное поле'
+    message: 'Это обязательное поле',
   })
   readonly action: EEntityAction;
 }
-
