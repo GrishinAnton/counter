@@ -2,14 +2,18 @@ import { Column, Model, Table } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 import { DataTypes } from 'sequelize';
 
-enum EEntityAction {
-  INCREMENT = 'increment',
-  DECREMENT = 'decrement',
+export enum EEntityAction {
+  INCREMENT = 'INCREMENT',
+  DECREMENT = 'DECREMENT',
 }
 
-interface IEntityCreation {
+export interface IEntityCreation {
   name: string;
   startDate: Date;
+  finishDate: Date;
+  time: boolean;
+  startValue: string;
+  action: EEntityAction;
 }
 
 @Table({ tableName: 'entity' })
@@ -39,18 +43,49 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
   })
   @Column({
     type: DataTypes.DATE,
+    allowNull: false,
   })
   startDate: Date;
 
-  // endDate: Date | null,
-  // time: boolean
-  // startValue: string
-  // action: EEntityAction;
-}
+  @ApiProperty({
+    example: '10.02.2021',
+    description: 'Дата когда сущности заканчивает работать',
+  })
+  @Column({
+    type: DataTypes.DATE,
+    allowNull: false,
+  })
+  finishDate: Date;
 
-// name: '',
-//   startDate: new Date(),
-//   endDate: null,
-//   time: false,
-//   startValue: '',
-//   action: EEntityAction.INCREMENT,
+  @ApiProperty({
+    example: true, description: 'Учитывать время в дате или нет'
+  })
+  @Column({
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+    allowNull: false,
+  })
+  readonly time: boolean
+
+  @ApiProperty({
+    example: '2',
+    description: 'Стартовае значение сущности',
+  })
+  @Column({
+    type: DataTypes.STRING,
+    defaultValue: '0',
+    allowNull: false,
+  })
+  readonly startValue: string
+
+  @ApiProperty({
+    example: EEntityAction.DECREMENT,
+    description: 'Увеличиваем или уменьшем значение сущности'
+  })
+  @Column({
+    type: DataTypes.STRING,
+    defaultValue: EEntityAction.INCREMENT,
+    allowNull: false,
+  })
+  readonly action: EEntityAction;
+}

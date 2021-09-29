@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { UserModel } from '../users/user.model';
 import { CreateEntityDto } from './dto/create-entity.dto';
 import { EntityModel } from './entity.model';
 
@@ -13,5 +12,12 @@ export class EntityService {
   async createEntity(entityDto: CreateEntityDto) {
     const entity = await this.entityRepository.create(entityDto);
     return entity;
+  }
+
+  async getEntities (){
+    const entities = await this.entityRepository.findAll()
+    console.log(entities);
+
+    return entities
   }
 }
