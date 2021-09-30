@@ -9,10 +9,10 @@ import { UserModel } from './user.model';
 export class UsersController {
   constructor(private userService: UsersService) {}
 
-  @ApiOperation({ summary: 'Создание пользователя' })
-  @ApiResponse({ status: 200, type: UserModel })
-  @Post()
-  create(@Body() userDto: CreateUserDto) {
-    return this.userService.createUser(userDto);
-  }
+  // @ApiOperation({ summary: 'Создание пользователя' })
+  // @ApiResponse({ status: 200, type: UserModel })
+  // @Post()
+  // create(@Body() userDto: CreateUserDto) {
+  //   return this.userService.createUser(userDto);
+  // }
 }
