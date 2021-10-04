@@ -1,5 +1,13 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsToMany,
+  Column,
+  DataType,
+  HasMany,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
+import { EntityModel } from 'src/entity/entity.model';
 
 interface IUserCreation {
   email: string;
@@ -24,4 +32,7 @@ export class UserModel extends Model<UserModel, IUserCreation> {
   @ApiProperty({ example: '12345678', description: 'Пароль пользователя' })
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
+
+  @HasMany(() => EntityModel)
+  entities: EntityModel[];
 }

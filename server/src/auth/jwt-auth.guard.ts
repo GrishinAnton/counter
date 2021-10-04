@@ -7,6 +7,11 @@ import {
 import { Observable } from 'rxjs';
 import { JwtService } from '@nestjs/jwt';
 
+export interface ITokenUser {
+  id: number;
+  email: string;
+}
+
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
   constructor(private jwtService: JwtService) {}

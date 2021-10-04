@@ -1,13 +1,13 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsString } from "class-validator";
-import { CreateEntityDto } from "./create-entity.dto";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsInt } from 'class-validator';
+import { EntityDto } from './entity.dto';
 
-export class UpdatedEntityDto extends CreateEntityDto {
+export class UpdatedEntityDto extends EntityDto {
   @ApiProperty({
     example: 'ID сущности',
     description: 'ID сущности',
   })
-  @IsString({ message: 'Должно быть строкой' })
+  @IsInt({ message: 'Должно быть числом' })
   @IsNotEmpty({ message: 'Это поле обязательно' })
   readonly id: number;
 }

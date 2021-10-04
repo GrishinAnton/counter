@@ -1,6 +1,13 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 import { DataTypes } from 'sequelize';
+import { UserModel } from 'src/users/user.model';
 
 export enum EEntityAction {
   INCREMENT = 'INCREMENT',
@@ -14,6 +21,7 @@ export interface IEntityCreation {
   time: boolean;
   startValue: string;
   action: EEntityAction;
+  userId: number;
 }
 
 @Table({ tableName: 'entity' })
@@ -58,14 +66,15 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
   finishDate: Date;
 
   @ApiProperty({
-    example: true, description: 'Учитывать время в дате или нет'
+    example: true,
+    description: 'Учитывать время в дате или нет',
   })
   @Column({
     type: DataTypes.BOOLEAN,
     defaultValue: false,
     allowNull: false,
   })
-  readonly time: boolean
+  readonly time: boolean;
 
   @ApiProperty({
     example: '2',
@@ -76,11 +85,11 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
     defaultValue: '0',
     allowNull: false,
   })
-  readonly startValue: string
+  readonly startValue: string;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,
-    description: 'Увеличиваем или уменьшем значение сущности'
+    description: 'Увеличиваем или уменьшем значение сущности',
   })
   @Column({
     type: DataTypes.STRING,
@@ -88,4 +97,11 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
     allowNull: false,
   })
   readonly action: EEntityAction;
+
+  @ForeignKey(() => UserModel)
+  @Column
+  userId: number;
+
+  @BelongsTo(() => UserModel)
+  user: UserModel;
 }
