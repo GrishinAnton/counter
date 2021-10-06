@@ -15,8 +15,9 @@ import {
 import { register } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
 import { EAuthType } from '../Auth';
-import { setData } from '../../../../common/utils/localStorage';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
+import UserStore from '../../../../store/UserStore';
+import { setDataToLocalStorage } from '../../../../common/utils/localStorage';
 
 const schema = object().shape({
   email: emailValidation,
@@ -44,7 +45,8 @@ export const Register = () => {
       const registerData = await register({ createUserDto: params });
 
       if (registerData && registerData.token) {
-        setData('token', registerData.token);
+        UserStore.setUser(registerData);
+        setDataToLocalStorage('user', registerData);
         history.push('/');
       }
     } catch (e) {

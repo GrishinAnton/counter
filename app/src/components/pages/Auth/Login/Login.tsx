@@ -4,18 +4,20 @@ import { useHistory } from 'react-router';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
+import UserStore from 'store/UserStore';
+import { setDataToLocalStorage } from 'common/utils/localStorage';
+
 import { Button } from '../../../ui/Button/Button';
 import { AuthForm } from '../Ui/AuthForm';
-import { emailValidation, passwordValidationConfirm } from '../../../../common/validation/validationSchema';
+import { emailValidation, passwordValidation } from '../../../../common/validation/validationSchema';
 import { login } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
 import { EAuthType } from '../Auth';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
-import { setData } from '../../../../common/utils/localStorage';
 
 const schema = object().shape({
   email: emailValidation,
-  password: passwordValidationConfirm,
+  password: passwordValidation,
 });
 
 export const Login = observer(() => {
@@ -34,7 +36,8 @@ export const Login = observer(() => {
     try {
       const loginData = await login({ createUserDto: data });
       if (loginData && loginData.token) {
-        setData('token', loginData.token);
+        UserStore.setUser(loginData);
+        setDataToLocalStorage('user', loginData);
         history.push('/');
       }
     } catch (e) {

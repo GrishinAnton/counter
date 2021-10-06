@@ -16,7 +16,6 @@ import Home from './components/pages/Home/Home';
 export const App = observer(() => {
   const { user } = UserStore;
   const history = useHistory();
-
   if (!user) {
     history.push(ERoutes.LOGIN);
   }

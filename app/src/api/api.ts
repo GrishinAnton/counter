@@ -24,6 +24,84 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 /**
  * 
  * @export
+ * @interface AuthUserResponseDto
+ */
+export interface AuthUserResponseDto {
+    /**
+     * Почта пользователя
+     * @type {string}
+     * @memberof AuthUserResponseDto
+     */
+    email: string;
+    /**
+     * Пароль пользователя
+     * @type {string}
+     * @memberof AuthUserResponseDto
+     */
+    password: string;
+    /**
+     * Токен пользователя
+     * @type {string}
+     * @memberof AuthUserResponseDto
+     */
+    token: string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateEntityDto
+ */
+export interface CreateEntityDto {
+    /**
+     * Название сущности
+     * @type {string}
+     * @memberof CreateEntityDto
+     */
+    name: string;
+    /**
+     * Дата с которой сущности начинает работать
+     * @type {string}
+     * @memberof CreateEntityDto
+     */
+    startDate: string;
+    /**
+     * Дата когда сущности заканчивает работать
+     * @type {string}
+     * @memberof CreateEntityDto
+     */
+    finishDate: string;
+    /**
+     * Учитывать время в дате или нет
+     * @type {boolean}
+     * @memberof CreateEntityDto
+     */
+    time: boolean;
+    /**
+     * Стартовае значение сущности
+     * @type {string}
+     * @memberof CreateEntityDto
+     */
+    startValue: string;
+    /**
+     * Увеличиваем или уменьшем значение сущности
+     * @type {string}
+     * @memberof CreateEntityDto
+     */
+    action: CreateEntityDtoActionEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateEntityDtoActionEnum {
+    Increment = 'INCREMENT',
+    Decrement = 'DECREMENT'
+}
+
+/**
+ * 
+ * @export
  * @interface CreateUserDto
  */
 export interface CreateUserDto {
@@ -43,41 +121,121 @@ export interface CreateUserDto {
 /**
  * 
  * @export
- * @interface RegisterUserResponseDto
+ * @interface GetEntityDto
  */
-export interface RegisterUserResponseDto {
+export interface GetEntityDto {
     /**
-     * Токен пользователя
+     * Название сущности
      * @type {string}
-     * @memberof RegisterUserResponseDto
+     * @memberof GetEntityDto
      */
-    token: string;
+    name: string;
+    /**
+     * Дата с которой сущности начинает работать
+     * @type {string}
+     * @memberof GetEntityDto
+     */
+    startDate: string;
+    /**
+     * Дата когда сущности заканчивает работать
+     * @type {string}
+     * @memberof GetEntityDto
+     */
+    finishDate: string;
+    /**
+     * Учитывать время в дате или нет
+     * @type {boolean}
+     * @memberof GetEntityDto
+     */
+    time: boolean;
+    /**
+     * Стартовае значение сущности
+     * @type {string}
+     * @memberof GetEntityDto
+     */
+    startValue: string;
+    /**
+     * Увеличиваем или уменьшем значение сущности
+     * @type {string}
+     * @memberof GetEntityDto
+     */
+    action: GetEntityDtoActionEnum;
+    /**
+     * ID сущности
+     * @type {number}
+     * @memberof GetEntityDto
+     */
+    id: number;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GetEntityDtoActionEnum {
+    Increment = 'INCREMENT',
+    Decrement = 'DECREMENT'
+}
+
 /**
  * 
  * @export
- * @interface UserModel
+ * @interface UpdatedEntityDto
  */
-export interface UserModel {
+export interface UpdatedEntityDto {
     /**
-     * Идентификатор пользователя
+     * Название сущности
+     * @type {string}
+     * @memberof UpdatedEntityDto
+     */
+    name: string;
+    /**
+     * Дата с которой сущности начинает работать
+     * @type {string}
+     * @memberof UpdatedEntityDto
+     */
+    startDate: string;
+    /**
+     * Дата когда сущности заканчивает работать
+     * @type {string}
+     * @memberof UpdatedEntityDto
+     */
+    finishDate: string;
+    /**
+     * Учитывать время в дате или нет
+     * @type {boolean}
+     * @memberof UpdatedEntityDto
+     */
+    time: boolean;
+    /**
+     * Стартовае значение сущности
+     * @type {string}
+     * @memberof UpdatedEntityDto
+     */
+    startValue: string;
+    /**
+     * Увеличиваем или уменьшем значение сущности
+     * @type {string}
+     * @memberof UpdatedEntityDto
+     */
+    action: UpdatedEntityDtoActionEnum;
+    /**
+     * ID сущности
      * @type {number}
-     * @memberof UserModel
+     * @memberof UpdatedEntityDto
      */
     id: number;
-    /**
-     * Почта пользователя
-     * @type {string}
-     * @memberof UserModel
-     */
-    email: string;
-    /**
-     * Пароль пользователя
-     * @type {string}
-     * @memberof UserModel
-     */
-    password: string;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatedEntityDtoActionEnum {
+    Increment = 'INCREMENT',
+    Decrement = 'DECREMENT'
+}
+
 
 /**
  * DefaultApi - axios parameter creator
@@ -157,15 +315,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @summary Создание пользователя
-         * @param {CreateUserDto} createUserDto 
+         * @summary Создание сущности
+         * @param {CreateEntityDto} createEntityDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreate: async (createUserDto: CreateUserDto, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createUserDto' is not null or undefined
-            assertParamExists('usersControllerCreate', 'createUserDto', createUserDto)
-            const localVarPath = `/users`;
+        entityControllerCreateEntity: async (createEntityDto: CreateEntityDto, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createEntityDto' is not null or undefined
+            assertParamExists('entityControllerCreateEntity', 'createEntityDto', createEntityDto)
+            const localVarPath = `/entity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -177,6 +335,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -184,7 +346,119 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createUserDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createEntityDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Получение всех сущностей пользователя
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerGetEntities: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/entity`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Получение одной сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerGetEntityById: async (id: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('entityControllerGetEntityById', 'id', id)
+            const localVarPath = `/entity/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Обновление сущности
+         * @param {UpdatedEntityDto} updatedEntityDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntity: async (updatedEntityDto: UpdatedEntityDto, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'updatedEntityDto' is not null or undefined
+            assertParamExists('entityControllerUpdateEntity', 'updatedEntityDto', updatedEntityDto)
+            const localVarPath = `/entity`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(updatedEntityDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -207,7 +481,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerLogin(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RegisterUserResponseDto>> {
+        async authControllerLogin(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUserResponseDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerLogin(createUserDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -217,19 +491,51 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerRegistration(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RegisterUserResponseDto>> {
+        async authControllerRegistration(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUserResponseDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerRegistration(createUserDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @summary Создание пользователя
-         * @param {CreateUserDto} createUserDto 
+         * @summary Создание сущности
+         * @param {CreateEntityDto} createEntityDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerCreate(createUserDto: CreateUserDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerCreate(createUserDto, options);
+        async entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerCreateEntity(createEntityDto, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Получение всех сущностей пользователя
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerGetEntities(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetEntityDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerGetEntities(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Получение одной сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerGetEntityById(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetEntityDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerGetEntityById(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Обновление сущности
+         * @param {UpdatedEntityDto} updatedEntityDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerUpdateEntity(updatedEntityDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -248,7 +554,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerLogin(createUserDto: CreateUserDto, options?: any): AxiosPromise<RegisterUserResponseDto> {
+        authControllerLogin(createUserDto: CreateUserDto, options?: any): AxiosPromise<AuthUserResponseDto> {
             return localVarFp.authControllerLogin(createUserDto, options).then((request) => request(axios, basePath));
         },
         /**
@@ -257,18 +563,47 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerRegistration(createUserDto: CreateUserDto, options?: any): AxiosPromise<RegisterUserResponseDto> {
+        authControllerRegistration(createUserDto: CreateUserDto, options?: any): AxiosPromise<AuthUserResponseDto> {
             return localVarFp.authControllerRegistration(createUserDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Создание пользователя
-         * @param {CreateUserDto} createUserDto 
+         * @summary Создание сущности
+         * @param {CreateEntityDto} createEntityDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreate(createUserDto: CreateUserDto, options?: any): AxiosPromise<UserModel> {
-            return localVarFp.usersControllerCreate(createUserDto, options).then((request) => request(axios, basePath));
+        entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): AxiosPromise<void> {
+            return localVarFp.entityControllerCreateEntity(createEntityDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Получение всех сущностей пользователя
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerGetEntities(options?: any): AxiosPromise<Array<GetEntityDto>> {
+            return localVarFp.entityControllerGetEntities(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Получение одной сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerGetEntityById(id: string, options?: any): AxiosPromise<GetEntityDto> {
+            return localVarFp.entityControllerGetEntityById(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Обновление сущности
+         * @param {UpdatedEntityDto} updatedEntityDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any): AxiosPromise<void> {
+            return localVarFp.entityControllerUpdateEntity(updatedEntityDto, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -304,14 +639,49 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @summary Создание пользователя
-     * @param {CreateUserDto} createUserDto 
+     * @summary Создание сущности
+     * @param {CreateEntityDto} createEntityDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public usersControllerCreate(createUserDto: CreateUserDto, options?: any) {
-        return DefaultApiFp(this.configuration).usersControllerCreate(createUserDto, options).then((request) => request(this.axios, this.basePath));
+    public entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerCreateEntity(createEntityDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Получение всех сущностей пользователя
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerGetEntities(options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerGetEntities(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Получение одной сущности
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerGetEntityById(id: string, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerGetEntityById(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Обновление сущности
+     * @param {UpdatedEntityDto} updatedEntityDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerUpdateEntity(updatedEntityDto, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

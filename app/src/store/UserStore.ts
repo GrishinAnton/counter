@@ -1,22 +1,25 @@
 import { makeAutoObservable } from 'mobx';
+import { AuthUserResponseDto } from '../api';
+import { getDataFromLocalStorage } from '../common/utils/localStorage';
 
 class UserStore {
-  user: {} | null | undefined;
+  user: AuthUserResponseDto | null = getDataFromLocalStorage('user');
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  login = async () => {
-    try {
-      const user ={}
-      this.user = user;
-    } catch (e) {
-      const errorMessage = e.message;
-      throw Error(errorMessage);
-    }
+  setUser(user: AuthUserResponseDto) {
+    this.user = user;
+  }
 
-  };
+  getUser() {
+    return this.user;
+  }
+
+  deleteUser() {
+    this.user = null;
+  }
 }
 
 export default new UserStore();

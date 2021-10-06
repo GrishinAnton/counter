@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление регистрации|авторизации">
-      <change afterPath="$PROJECT_DIR$/server/src/entity/dto/create-entity.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/entity/entity.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/store/EntityStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/store/UserStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/UserStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +72,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -145,6 +148,7 @@
       <workItem from="1632396174759" duration="2245000" />
       <workItem from="1632469656604" duration="15592000" />
       <workItem from="1632830515317" duration="4419000" />
+      <workItem from="1633502792984" duration="1912000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
