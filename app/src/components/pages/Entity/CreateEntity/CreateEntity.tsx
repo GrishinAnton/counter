@@ -18,6 +18,7 @@ import { IEntityFields } from '../../../../common/types/entity.types';
 import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
 import { createEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
+import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 
 const schema = object().shape({
   name: validationString,
@@ -56,7 +57,7 @@ const CreateEntity = observer(() => {
         Notification({ message: 'Сущность добавлена' });
       }
     } catch (e) {
-      console.log(e);
+      ErrorNotification(e);
     }
   };
 

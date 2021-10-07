@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { EmptyCountBlock } from 'components/layout/EmptyCountBlock/EmptyCountBlock';
 import { CounterCard } from 'components/layout/CounterCard/CounterCard';
 import { observer } from 'mobx-react-lite';
-import axios from 'axios';
 import { CounterBlock } from '../../ui/ContainerBlock/ContainerBlock';
 import EntityStore from '../../../store/EntityStore';
 import { getEntities } from '../../../features/entity/api';
-import { Notification, ResponseNotification } from '../../layout/Notification/Notification';
+import { ErrorNotification } from '../../layout/ErrorNotification/ErrorNotification';
 
 const Home = observer(() => {
   const entities = EntityStore.getEntities();
@@ -20,7 +19,7 @@ const Home = observer(() => {
           EntityStore.setEntities(entitiesData);
         }
       } catch (e) {
-        ResponseNotification(e);
+        ErrorNotification(e);
       }
     };
 
