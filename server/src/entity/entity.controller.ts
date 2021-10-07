@@ -7,6 +7,7 @@ import {
   Put,
   Req,
   UseGuards,
+  Patch,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -84,6 +85,38 @@ export class EntityController {
     const user: ITokenUser = request.user;
     return this.entityService.updateEntity({
       entity: entityDto,
+      userId: user.id,
+    });
+  }
+
+  @ApiOperation({ summary: 'Инкремент значения сущности' })
+  @ApiBearerAuth()
+  @ApiResponse({
+    status: 201,
+    description: 'Сущность обнавлена',
+  })
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/inc')
+  updateEntityIncrement(@Param('id') id: string, @Req() request: any) {
+    const user: ITokenUser = request.user;
+    return this.entityService.updateEntityIncrement({
+      id: Number(id),
+      userId: user.id,
+    });
+  }
+
+  @ApiOperation({ summary: 'Декремент значения сущности' })
+  @ApiBearerAuth()
+  @ApiResponse({
+    status: 201,
+    description: 'Сущность обнавлена',
+  })
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/dec')
+  updateEntityDecrement(@Param('id') id: string, @Req() request: any) {
+    const user: ITokenUser = request.user;
+    return this.entityService.updateEntityDecrement({
+      id: Number(id),
       userId: user.id,
     });
   }

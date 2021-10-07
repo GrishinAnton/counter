@@ -5,14 +5,16 @@ import { CreateEntityWithUserIdDto } from './dto/create-entity.dto';
 import { UpdatedEntityDto } from './dto/update-entity.dto';
 import { EntityModel } from './entity.model';
 
-interface IGetEntities extends IUser {}
-
 interface IGetEntityById extends IUser {
   entityId: string;
 }
 
 interface IUpdateEntity extends IUser {
   entity: UpdatedEntityDto;
+}
+
+interface IUpdateEntityAction extends IUser {
+  id: number;
 }
 
 @Injectable()
@@ -22,13 +24,11 @@ export class EntityService {
   ) {}
 
   async createEntity(entityDto: CreateEntityWithUserIdDto) {
-    const entity = await this.entityRepository.create(entityDto);
-    return entity;
+    return await this.entityRepository.create(entityDto);
   }
 
-  async getEntities({ userId }: IGetEntities) {
-    const entities = await this.entityRepository.findAll({ where: { userId } });
-    return entities;
+  async getEntities({ userId }: IUser) {
+    return await this.entityRepository.findAll({ where: { userId } });
   }
 
   async getEntityById({ entityId, userId }: IGetEntityById) {
@@ -56,8 +56,38 @@ export class EntityService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    const updatedEntity = await this.entityRepository.update(entity, {
+    await this.entityRepository.update(entity, {
       where: { id: entity.id, userId },
     });
+  }
+
+  async updateEntityIncrement({ id, userId }: IUpdateEntityAction) {
+    const entity = await this.entityRepository.findOne({
+      where: { id, userId },
+    });
+    if (entity) {
+      entity.startValue = String(Number(entity.startValue) + 1);
+      await entity.save();
+    } else {
+      throw new HttpException(
+        'Такой сущности не существует',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
+
+  async updateEntityDecrement({ id, userId }: IUpdateEntityAction) {
+    const entity = await this.entityRepository.findOne({
+      where: { id, userId },
+    });
+    if (entity) {
+      entity.startValue = String(Number(entity.startValue) - 1);
+      await entity.save();
+    } else {
+      throw new HttpException(
+        'Такой сущности не существует',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }

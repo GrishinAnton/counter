@@ -85,7 +85,7 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
     defaultValue: '0',
     allowNull: false,
   })
-  readonly startValue: string;
+  startValue: string;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,

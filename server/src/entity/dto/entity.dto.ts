@@ -53,7 +53,7 @@ export class EntityDto {
     message: 'Это должна быть строка',
   })
   @IsNotEmpty({ message: 'Это поле обязательно' })
-  readonly startValue: string;
+  startValue: string;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,
