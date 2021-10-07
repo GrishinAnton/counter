@@ -90,4 +90,10 @@ export class EntityService {
       );
     }
   }
+
+  async deleteEntity({ id, userId }: IUpdateEntityAction) {
+    await this.entityRepository.destroy({
+      where: { id, userId },
+    });
+  }
 }

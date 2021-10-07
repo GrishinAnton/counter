@@ -8,6 +8,7 @@ import {
   Req,
   UseGuards,
   Patch,
+  Delete,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -116,6 +117,22 @@ export class EntityController {
   updateEntityDecrement(@Param('id') id: string, @Req() request: any) {
     const user: ITokenUser = request.user;
     return this.entityService.updateEntityDecrement({
+      id: Number(id),
+      userId: user.id,
+    });
+  }
+
+  @ApiOperation({ summary: 'Удаление сущности' })
+  @ApiBearerAuth()
+  @ApiResponse({
+    status: 201,
+    description: 'Сущность удалена',
+  })
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  deleteEntity(@Param('id') id: string, @Req() request: any) {
+    const user: ITokenUser = request.user;
+    return this.entityService.deleteEntity({
       id: Number(id),
       userId: user.id,
     });

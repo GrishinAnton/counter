@@ -24,7 +24,7 @@ export interface IEntityCreation {
   userId: number;
 }
 
-@Table({ tableName: 'entity' })
+@Table({ tableName: 'entity', paranoid: true })
 export class EntityModel extends Model<EntityModel, IEntityCreation> {
   @ApiProperty({ example: '1', description: 'Идентификатор сущности' })
   @Column({

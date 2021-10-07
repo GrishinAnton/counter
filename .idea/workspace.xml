@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Мелкие правки по сущности на фронте">
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление инкремента/декремента на беке">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/entity/dto/entity.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/dto/entity.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/entity/entity.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/entity/entity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.service.ts" afterDir="false" />
@@ -146,7 +145,7 @@
       <workItem from="1633502792984" duration="3762000" />
       <workItem from="1633510554951" duration="1027000" />
       <workItem from="1633512019050" duration="3793000" />
-      <workItem from="1633593678107" duration="4504000" />
+      <workItem from="1633593678107" duration="5575000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -288,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633601336751</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Добавление инкремента/декремента на беке">
+      <created>1633604846522</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1633604846522</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +334,8 @@
     <MESSAGE value="Доработка авторизации на фронте" />
     <MESSAGE value="Создание и получение сущности на фронте" />
     <MESSAGE value="Мелкие правки по сущности на фронте" />
-    <option name="LAST_COMMIT_MESSAGE" value="Мелкие правки по сущности на фронте" />
+    <MESSAGE value="Добавление инкремента/декремента на беке" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление инкремента/декремента на беке" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
