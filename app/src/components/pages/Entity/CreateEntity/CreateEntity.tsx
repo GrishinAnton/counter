@@ -7,22 +7,24 @@ import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
-import { v4 as uuidv4 } from 'uuid';
+import { observer } from 'mobx-react-lite';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { createEntityStyles } from '../common/styles/styles';
 import { Form } from '../Ui/Form';
 import { Header } from '../Ui/Header';
 import { Footer } from '../Ui/Footer';
-import { EActions } from '../../../../features/config';
-import { EEntityAction, IEntityFields } from '../../../../common/types/entity.types';
+import { IEntityFields } from '../../../../common/types/entity.types';
+import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
+import { createEntity } from '../../../../features/entity/api';
+import EntityStore from '../../../../store/EntityStore';
 
 const schema = object().shape({
   name: validationString,
   startValue: validationString,
 });
 
-const CreateEntity = () => {
+const CreateEntity = observer(() => {
   const classes = createEntityStyles();
   const history = useHistory();
 
@@ -32,22 +34,30 @@ const CreateEntity = () => {
     defaultValues: {
       name: '',
       startDate: new Date(),
-      endDate: null,
+      finishDate: null,
       time: false,
       startValue: '',
-      action: EEntityAction.INCREMENT,
+      action: CreateEntityDtoActionEnum.Increment,
     },
   });
 
-  const onSubmit = (data: IEntityFields) => {
-    const params = {
-      id: uuidv4(),
-      ...data,
-    };
+  const onSubmit = async (data: IEntityFields) => {
+    try {
+      const params: CreateEntityDto = {
+        ...data,
+        startDate: String(data.startDate.toISOString()),
+        finishDate: data.finishDate ? String(data.finishDate.toISOString()) : undefined,
+      };
+      const createdEntity = await createEntity({ createEntityDto: params });
 
-    // appendData(EActions.GET_COUNTS, params);
-    history.push(ERoutes.HOME);
-    Notification({ message: 'Сущность добавлена' });
+      if (createdEntity) {
+        EntityStore.addEntity(createdEntity);
+        history.push(ERoutes.HOME);
+        Notification({ message: 'Сущность добавлена' });
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -63,6 +73,6 @@ const CreateEntity = () => {
       <Footer onSubmitForm={methods.handleSubmit(onSubmit)} />
     </Grid>
   );
-};
+});
 
 export default CreateEntity;

@@ -17,7 +17,7 @@ export enum EEntityAction {
 export interface IEntityCreation {
   name: string;
   startDate: Date;
-  finishDate: Date;
+  finishDate?: Date | undefined;
   time: boolean;
   startValue: string;
   action: EEntityAction;
@@ -61,7 +61,7 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
   })
   @Column({
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   })
   finishDate: Date;
 

@@ -69,7 +69,7 @@ export interface CreateEntityDto {
      * @type {string}
      * @memberof CreateEntityDto
      */
-    finishDate: string;
+    finishDate?: string;
     /**
      * Учитывать время в дате или нет
      * @type {boolean}
@@ -141,7 +141,7 @@ export interface GetEntityDto {
      * @type {string}
      * @memberof GetEntityDto
      */
-    finishDate: string;
+    finishDate?: string;
     /**
      * Учитывать время в дате или нет
      * @type {boolean}
@@ -200,7 +200,7 @@ export interface UpdatedEntityDto {
      * @type {string}
      * @memberof UpdatedEntityDto
      */
-    finishDate: string;
+    finishDate?: string;
     /**
      * Учитывать время в дате или нет
      * @type {boolean}
@@ -502,7 +502,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetEntityDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerCreateEntity(createEntityDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -573,7 +573,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): AxiosPromise<void> {
+        entityControllerCreateEntity(createEntityDto: CreateEntityDto, options?: any): AxiosPromise<GetEntityDto> {
             return localVarFp.entityControllerCreateEntity(createEntityDto, options).then((request) => request(axios, basePath));
         },
         /**

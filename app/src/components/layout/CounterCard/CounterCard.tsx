@@ -1,22 +1,22 @@
 import { Grid } from '@material-ui/core';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import React from 'react';
+import { GetEntityDto } from 'api';
+
 import { Typography } from 'components/ui/Typography/Typography';
 import { counterCardUseStyles } from './styles';
 import { InformationBlock } from './InformationBlock/InformationBlock';
 import { SettingsBlock } from './SettingsBlock/SettingsBlock';
 import { ButtonBlock } from './ButtonBlock/ButtonBlock';
-import { IEntityFieldsWithId } from '../../../common/types/entity.types';
-import { updateEntityCounter } from '../../../features/api';
 
 interface IProps {
-  entity: IEntityFieldsWithId;
+  entity: GetEntityDto;
 }
 
 export const CounterCard: React.FC<IProps> = ({ entity }) => {
   const classesContainer = counterCardUseStyles();
 
-  const handleButtonCountClick = () => updateEntityCounter({ id: entity.id, action: entity.action });
+  // const handleButtonCountClick = () => updateEntityCounter({ id: entity.id, action: entity.action });
 
   return (
     <CounterBlock>
@@ -34,7 +34,7 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
           </Grid>
           {/* Блок с кнопкой */}
           <Grid item xs={4}>
-            <ButtonBlock onClick={handleButtonCountClick} count={Number(entity.startValue)} />
+            <ButtonBlock onClick={() => console.log('click')} count={Number(entity.startValue)} />
           </Grid>
         </Grid>
       </Grid>

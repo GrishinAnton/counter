@@ -4,6 +4,7 @@ import {
   IsDateString,
   IsEnum,
   IsNotEmpty,
+  IsOptional,
   IsString,
 } from 'class-validator';
 import { EEntityAction } from '../entity.model';
@@ -28,7 +29,9 @@ export class EntityDto {
   @ApiProperty({
     example: '10.02.2021',
     description: 'Дата когда сущности заканчивает работать',
+    required: false,
   })
+  @IsOptional()
   @IsDateString({}, { message: 'Это должна быть дата' })
   readonly finishDate: Date;
 

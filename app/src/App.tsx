@@ -12,6 +12,7 @@ import { observer } from 'mobx-react-lite';
 import { Auth } from 'components/pages/Auth/Auth';
 import UserStore from './store/UserStore';
 import Home from './components/pages/Home/Home';
+import { intercept } from './common/axios/interceptor';
 
 export const App = observer(() => {
   const { user } = UserStore;
@@ -19,6 +20,8 @@ export const App = observer(() => {
   if (!user) {
     history.push(ERoutes.LOGIN);
   }
+
+  intercept();
 
   return (
     <>

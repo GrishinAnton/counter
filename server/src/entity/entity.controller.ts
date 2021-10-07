@@ -27,6 +27,10 @@ export class EntityController {
 
   @ApiOperation({ summary: 'Создание сущности' })
   @ApiBearerAuth()
+  @ApiResponse({
+    status: 200,
+    type: GetEntityDto,
+  })
   @UseGuards(JwtAuthGuard)
   @Post()
   createEntity(@Body() entityDto: CreateEntityDto, @Req() request: any) {

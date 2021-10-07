@@ -4,7 +4,7 @@ import { ControllerTextField } from 'components/layout/ControllerComponent/Contr
 import { ControllerDatePicker } from 'components/layout/ControllerComponent/ControllerDatePicker/ControllerDatePicker';
 import { ControllerCheckbox } from 'components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox';
 import { ControllerRadio } from 'components/layout/ControllerComponent/ControllerRadio/ControllerRadio';
-import { EEntityAction } from '../../../../common/types/entity.types';
+import { CreateEntityDtoActionEnum } from '../../../../api';
 
 export const Form = () => {
   const createEntity: IFormField[] = useMemo(
@@ -29,7 +29,7 @@ export const Form = () => {
       },
       {
         label: 'Дата окончания',
-        name: 'endDate',
+        name: 'finishDate',
         type: 'date',
         required: false,
         placeholder: 'Введите дату окончания',
@@ -61,7 +61,7 @@ export const Form = () => {
     () => [
       {
         label: 'Увеличение',
-        value: EEntityAction.INCREMENT,
+        value: CreateEntityDtoActionEnum.Increment,
         type: 'radio',
         required: false,
         fieldType: 'radio',
@@ -69,7 +69,7 @@ export const Form = () => {
       },
       {
         label: 'Уменьшение',
-        value: EEntityAction.DECREMENT,
+        value: CreateEntityDtoActionEnum.Decrement,
         type: 'radio',
         required: false,
         fieldType: 'radio',

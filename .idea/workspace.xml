@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление регистрации|авторизации">
-      <change afterPath="$PROJECT_DIR$/app/src/store/EntityStore.ts" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Доработка авторизации на фронте">
+      <change afterPath="$PROJECT_DIR$/app/src/common/axios/interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/features/entity/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/store/UserStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/UserStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/dto/register-user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/common/types/entity.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/types/entity.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/Notification/Notification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/Notification/Notification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/store/EntityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/EntityStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/entity/dto/entity.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/dto/entity.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/entity/entity.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.model.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +79,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -148,7 +155,10 @@
       <workItem from="1632396174759" duration="2245000" />
       <workItem from="1632469656604" duration="15592000" />
       <workItem from="1632830515317" duration="4419000" />
-      <workItem from="1633502792984" duration="1912000" />
+      <workItem from="1633502792984" duration="3762000" />
+      <workItem from="1633510554951" duration="1027000" />
+      <workItem from="1633512019050" duration="3793000" />
+      <workItem from="1633593678107" duration="993000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -269,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632753379764</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Доработка авторизации на фронте">
+      <created>1633505936938</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1633505936939</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +323,8 @@
     <MESSAGE value="Рефактор" />
     <MESSAGE value="Добавление регистрации" />
     <MESSAGE value="Добавление регистрации|авторизации" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление регистрации|авторизации" />
+    <MESSAGE value="Доработка авторизации на фронте" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доработка авторизации на фронте" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
