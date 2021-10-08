@@ -355,6 +355,44 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Удаление сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerDeleteEntity: async (id: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('entityControllerDeleteEntity', 'id', id)
+            const localVarPath = `/entity/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Получение всех сущностей пользователя
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -465,6 +503,82 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Декремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntityDecrement: async (id: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('entityControllerUpdateEntityDecrement', 'id', id)
+            const localVarPath = `/entity/{id}/dec`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Инкремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntityIncrement: async (id: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('entityControllerUpdateEntityIncrement', 'id', id)
+            const localVarPath = `/entity/{id}/inc`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -508,6 +622,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Удаление сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerDeleteEntity(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerDeleteEntity(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @summary Получение всех сущностей пользователя
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -536,6 +661,28 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerUpdateEntity(updatedEntityDto, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Декремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerUpdateEntityDecrement(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerUpdateEntityDecrement(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Инкремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async entityControllerUpdateEntityIncrement(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.entityControllerUpdateEntityIncrement(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -578,6 +725,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Удаление сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerDeleteEntity(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.entityControllerDeleteEntity(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Получение всех сущностей пользователя
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -604,6 +761,26 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any): AxiosPromise<void> {
             return localVarFp.entityControllerUpdateEntity(updatedEntityDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Декремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntityDecrement(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.entityControllerUpdateEntityDecrement(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Инкремент значения сущности
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        entityControllerUpdateEntityIncrement(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.entityControllerUpdateEntityIncrement(id, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -651,6 +828,18 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
+     * @summary Удаление сущности
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerDeleteEntity(id: string, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerDeleteEntity(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @summary Получение всех сущностей пользователя
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -682,6 +871,30 @@ export class DefaultApi extends BaseAPI {
      */
     public entityControllerUpdateEntity(updatedEntityDto: UpdatedEntityDto, options?: any) {
         return DefaultApiFp(this.configuration).entityControllerUpdateEntity(updatedEntityDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Декремент значения сущности
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerUpdateEntityDecrement(id: string, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerUpdateEntityDecrement(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Инкремент значения сущности
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public entityControllerUpdateEntityIncrement(id: string, options?: any) {
+        return DefaultApiFp(this.configuration).entityControllerUpdateEntityIncrement(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

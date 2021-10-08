@@ -10,3 +10,13 @@ export const getEntities = () =>
   DefaultApiFactory(undefined, API_PREFIX)
     .entityControllerGetEntities()
     .then(res => res.data);
+
+export const updateEntityIncrement = ({ id }: { id: string }) =>
+  DefaultApiFactory(undefined, API_PREFIX)
+    .entityControllerUpdateEntityIncrement(id)
+    .then(res => res.data);
+
+export const updateEntityDecrement = ({ id }: { id: string }) =>
+  DefaultApiFactory(undefined, API_PREFIX)
+    .entityControllerUpdateEntityDecrement(id)
+    .then(res => res.data);

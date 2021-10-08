@@ -1,13 +1,12 @@
 import { Notification } from '../Notification/Notification';
 
 export const ErrorNotification = (error: any) => {
-  const responseData = error.response.data;
-  if (responseData && responseData.message) {
-    Notification({ message: responseData.message, type: 'error' });
+  if (error && error.message) {
+    Notification({ message: error.message, type: 'error' });
   }
-  if (responseData && responseData.length) {
+  if (error && error.length) {
     let message: string = '';
-    responseData.forEach((validationError: any[]) => {
+    error.forEach((validationError: any[]) => {
       message += Object.values(validationError);
     });
 

@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Добавление инкремента/декремента на беке">
+      <change afterPath="$PROJECT_DIR$/app/src/common/utils/logout.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/entity/entity.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/entity/entity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/entity/entity.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/common/axios/interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/axios/interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/InformationBlock/InformationBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/InformationBlock/InformationBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/ErrorNotification/ErrorNotification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/ErrorNotification/ErrorNotification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/features/entity/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/features/entity/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/store/EntityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/store/EntityStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +151,8 @@
       <workItem from="1633502792984" duration="3762000" />
       <workItem from="1633510554951" duration="1027000" />
       <workItem from="1633512019050" duration="3793000" />
-      <workItem from="1633593678107" duration="5575000" />
+      <workItem from="1633593678107" duration="5604000" />
+      <workItem from="1633614039353" duration="4487000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>
@@ -294,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633604846522</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Добавление инкремента/декремента на беке">
+      <created>1633611110087</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1633611110087</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

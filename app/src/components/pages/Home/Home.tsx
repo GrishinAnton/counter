@@ -9,6 +9,7 @@ import { ErrorNotification } from '../../layout/ErrorNotification/ErrorNotificat
 
 const Home = observer(() => {
   const entities = EntityStore.getEntities();
+  console.log(entities, 'entities');
 
   useEffect(() => {
     const loadData = async () => {

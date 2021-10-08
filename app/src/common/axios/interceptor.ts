@@ -1,6 +1,11 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { getDataFromLocalStorage } from '../utils/localStorage';
 import { AuthUserResponseDto } from '../../api';
+import { logout } from '../utils/logout';
+
+enum EResponseStatus {
+  Unauthorized = 401,
+}
 
 /** Interceptors */
 export const intercept = () => {
@@ -28,6 +33,9 @@ export const intercept = () => {
     response => response,
     // @ts-ignore
     async error => {
+      if (error.response?.status === EResponseStatus.Unauthorized) {
+        logout();
+      }
       const e = error as AxiosError;
 
       throw e.response?.data || error;

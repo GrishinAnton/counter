@@ -6,11 +6,11 @@ import { informationBlockUseStyles } from '../styles';
 import { Typography } from '../../../ui/Typography/Typography';
 
 interface IProps {
-  startDate?: string;
-  endDate?: string;
+  startDate: string;
+  finishDate?: string;
 }
 
-export const InformationBlock: React.FC<IProps> = ({ startDate = new Date(), endDate = 'нет срока ' }) => {
+export const InformationBlock: React.FC<IProps> = ({ startDate = new Date(), finishDate }) => {
   const classes = informationBlockUseStyles();
 
   return (
@@ -27,7 +27,10 @@ export const InformationBlock: React.FC<IProps> = ({ startDate = new Date(), end
           <Typography>{`старт: ${format(new Date(startDate), 'dd.MM')}`}</Typography>
         </Grid>
         <Grid item>
-          <Typography>{`окончание: ${endDate}`}</Typography>
+          <Typography>
+            {`окончание: `}
+            {finishDate ? format(new Date(finishDate), 'dd.MM') : 'нет срока'}
+          </Typography>
         </Grid>
       </Grid>
     </Grid>
