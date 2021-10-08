@@ -1,12 +1,16 @@
 import React, { useMemo } from 'react';
-import { IFormField, IFormFieldForRadio } from 'common/types/common.types';
+import { EActionType, IActionType, IFormField, IFormFieldForRadio } from 'common/types/common.types';
 import { ControllerTextField } from 'components/layout/ControllerComponent/ControllerInput/ControllerTextField';
 import { ControllerDatePicker } from 'components/layout/ControllerComponent/ControllerDatePicker/ControllerDatePicker';
 import { ControllerCheckbox } from 'components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox';
 import { ControllerRadio } from 'components/layout/ControllerComponent/ControllerRadio/ControllerRadio';
 import { CreateEntityDtoActionEnum } from '../../../../api';
 
-export const Form = () => {
+interface IProps {
+  type: keyof IActionType;
+}
+
+export const EntityForm: React.FC<IProps> = ({ type }) => {
   const createEntity: IFormField[] = useMemo(
     () => [
       {
@@ -16,7 +20,7 @@ export const Form = () => {
         required: true,
         placeholder: 'Введите название',
         fieldType: 'input',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
       {
         label: 'Дата старта',
@@ -25,7 +29,7 @@ export const Form = () => {
         required: false,
         placeholder: 'Введите дату старта',
         fieldType: 'date',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
       {
         label: 'Дата окончания',
@@ -34,7 +38,7 @@ export const Form = () => {
         required: false,
         placeholder: 'Введите дату окончания',
         fieldType: 'date',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
       {
         label: 'Учитывать время',
@@ -42,7 +46,7 @@ export const Form = () => {
         type: 'checkbox',
         required: false,
         fieldType: 'checkbox',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
       {
         label: 'Начальное значение',
@@ -51,7 +55,7 @@ export const Form = () => {
         required: true,
         placeholder: 'Введите стартовое значение',
         fieldType: 'input',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
     ],
     [],
@@ -65,7 +69,7 @@ export const Form = () => {
         type: 'radio',
         required: false,
         fieldType: 'radio',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
       {
         label: 'Уменьшение',
@@ -73,7 +77,7 @@ export const Form = () => {
         type: 'radio',
         required: false,
         fieldType: 'radio',
-        disabled: false,
+        disabled: type === EActionType.VIEW,
       },
     ],
     [],

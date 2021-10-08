@@ -8,7 +8,7 @@ import { CounterBlock } from '../../ui/ContainerBlock/ContainerBlock';
 import EntityStore from '../../../store/EntityStore';
 import { getEntities } from '../../../features/entity/api';
 import { ErrorNotification } from '../../layout/ErrorNotification/ErrorNotification';
-import { FooterWithButton } from '../../ui/FooterWithButton/FooterWithButton';
+import { FooterWithPrimaryButton } from '../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { ERoutes } from '../../../router/config';
 
 const Home = observer(() => {
@@ -38,7 +38,7 @@ const Home = observer(() => {
           {entities.map(entity => (
             <CounterCard entity={entity} key={entity.id} />
           ))}
-          <FooterWithButton onClick={() => history.push(ERoutes.CREATE_ENTITY)} />
+          <FooterWithPrimaryButton onClick={() => history.push(ERoutes.CREATE_ENTITY)} />
         </>
       ) : (
         <CounterBlock contentPosition='center'>

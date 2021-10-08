@@ -5,7 +5,11 @@ import { Typography } from 'components/ui/Typography/Typography';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import { useHistory } from 'react-router';
 
-export const Header = () => {
+interface IProps {
+  title: string;
+}
+
+export const Header: React.FC<IProps> = ({ title }) => {
   const history = useHistory();
 
   return (
@@ -13,7 +17,7 @@ export const Header = () => {
       <IconButton edge='start' color='inherit' onClick={() => history.goBack()}>
         <ArrowBack />
       </IconButton>
-      <Typography>Добавьте сущность</Typography>
+      <Typography>{title}</Typography>
     </AppBar>
   );
 };

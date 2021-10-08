@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 
 import { ERoutes } from 'router/config';
 import 'react-toastify/dist/ReactToastify.min.css';
+import ViewEntity from 'components/pages/Entity/ViewEntity/ViewEntity';
 
 import { observer } from 'mobx-react-lite';
 import { Auth } from 'components/pages/Auth/Auth';
@@ -36,6 +37,9 @@ export const App = observer(() => {
             </Route>
             <Route path={ERoutes.CREATE_ENTITY}>
               <CreateEntity />
+            </Route>
+            <Route path={`/:id${ERoutes.VIEW_ENTITY}`}>
+              <ViewEntity />
             </Route>
           </Switch>
         </Router>

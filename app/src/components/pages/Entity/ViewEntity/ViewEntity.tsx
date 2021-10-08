@@ -2,15 +2,21 @@ import React from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import { Grid } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
 import { observer } from 'mobx-react-lite';
-import { EActionType } from 'common/types/common.types';
+import { IconButton } from 'components/ui/IconButton/IconButton';
+import DeleteForever from '@material-ui/icons/DeleteForever';
+import Archive from '@material-ui/icons/Archive';
+import FileCopy from '@material-ui/icons/FileCopy';
+import Edit from '@material-ui/icons/Edit';
+import Save from '@material-ui/icons/Save';
 
 import { Notification } from 'components/layout/Notification/Notification';
+import { EActionType } from 'common/types/common.types';
 import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
@@ -19,16 +25,19 @@ import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
 import { createEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
-import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
+import { FooterWithPrimaryButton as FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
 
 const schema = object().shape({
   name: validationString,
   value: validationString,
 });
 
-const CreateEntity = observer(() => {
+// TODO Мы должны уметь просматривать, редактировать, удалять, архивировать, клонировать,
+
+const ViewEntity = observer(() => {
   const classes = createEntityStyles();
   const history = useHistory();
+  const { id }: { id: string | undefined } = useParams();
 
   const methods = useForm<IEntityFields>({
     mode: 'onChange',
@@ -65,17 +74,33 @@ const CreateEntity = observer(() => {
 
   return (
     <Grid container className={classes.container}>
-      <Header title='Добавьте сущность' />
+      <Header title='Просмотр сущности' />
       <CounterBlock>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <EntityForm type={EActionType.CREATE} />
+            <EntityForm type={EActionType.VIEW} />
           </form>
         </FormProvider>
       </CounterBlock>
-      <FooterWithPrimaryButton onClick={methods.handleSubmit(onSubmit)} />
+      <FooterWithPrimaryButton onClick={methods.handleSubmit(onSubmit)}>
+        <IconButton size='large'>
+          <DeleteForever />
+        </IconButton>
+        <IconButton size='large'>
+          <Archive />
+        </IconButton>
+        <IconButton size='large'>
+          <FileCopy />
+        </IconButton>
+        <IconButton size='large'>
+          <Edit />
+        </IconButton>
+        <IconButton size='large'>
+          <Save />
+        </IconButton>
+      </FooterWithPrimaryButton>
     </Grid>
   );
 });
 
-export default CreateEntity;
+export default ViewEntity;
