@@ -46,7 +46,7 @@ export const Form = () => {
       },
       {
         label: 'Начальное значение',
-        name: 'startValue',
+        name: 'value',
         type: 'number',
         required: true,
         placeholder: 'Введите стартовое значение',

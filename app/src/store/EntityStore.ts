@@ -17,11 +17,11 @@ class EntityStore {
   }
 
   incEntity(id: number) {
-    this.entities = this.entities.map(e => (e.id === id ? { ...e, startValue: String(Number(e.startValue) + 1) } : e));
+    this.entities = this.entities.map(e => (e.id === id ? { ...e, value: e.value + 1 } : e));
   }
 
   decEntity(id: number) {
-    this.entities = this.entities.map(e => (e.id === id ? { ...e, startValue: String(Number(e.startValue) - 1) } : e));
+    this.entities = this.entities.map(e => (e.id === id ? { ...e, value: e.value - 1 } : e));
   }
 
   getEntities() {

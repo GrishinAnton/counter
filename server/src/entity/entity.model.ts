@@ -19,7 +19,7 @@ export interface IEntityCreation {
   startDate: Date;
   finishDate?: Date | undefined;
   time: boolean;
-  startValue: string;
+  value: number;
   action: EEntityAction;
   userId: number;
 }
@@ -81,11 +81,11 @@ export class EntityModel extends Model<EntityModel, IEntityCreation> {
     description: 'Стартовае значение сущности',
   })
   @Column({
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     defaultValue: '0',
     allowNull: false,
   })
-  startValue: string;
+  value: number;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,

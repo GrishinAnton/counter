@@ -13,16 +13,16 @@ import { Notification } from 'components/layout/Notification/Notification';
 import { createEntityStyles } from '../common/styles/styles';
 import { Form } from '../Ui/Form';
 import { Header } from '../Ui/Header';
-import { Footer } from '../Ui/Footer';
 import { IEntityFields } from '../../../../common/types/entity.types';
 import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
 import { createEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
+import { FooterWithButton } from '../../../ui/FooterWithButton/FooterWithButton';
 
 const schema = object().shape({
   name: validationString,
-  startValue: validationString,
+  value: validationString,
 });
 
 const CreateEntity = observer(() => {
@@ -37,7 +37,7 @@ const CreateEntity = observer(() => {
       startDate: new Date(),
       finishDate: null,
       time: false,
-      startValue: '',
+      value: '',
       action: CreateEntityDtoActionEnum.Increment,
     },
   });
@@ -46,6 +46,7 @@ const CreateEntity = observer(() => {
     try {
       const params: CreateEntityDto = {
         ...data,
+        value: Number(data.value),
         startDate: String(data.startDate.toISOString()),
         finishDate: data.finishDate ? String(data.finishDate.toISOString()) : undefined,
       };
@@ -71,7 +72,7 @@ const CreateEntity = observer(() => {
           </form>
         </FormProvider>
       </CounterBlock>
-      <Footer onSubmitForm={methods.handleSubmit(onSubmit)} />
+      <FooterWithButton onClick={methods.handleSubmit(onSubmit)} />
     </Grid>
   );
 });

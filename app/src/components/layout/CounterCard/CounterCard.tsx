@@ -56,7 +56,7 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
           </Grid>
           {/* Блок с кнопкой */}
           <Grid item xs={4}>
-            <ButtonBlock onClick={handleButtonCountClick} count={Number(entity.startValue)} />
+            <ButtonBlock onClick={handleButtonCountClick} count={entity.value} />
           </Grid>
         </Grid>
       </Grid>

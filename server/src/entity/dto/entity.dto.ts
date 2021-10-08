@@ -4,6 +4,7 @@ import {
   IsDateString,
   IsEnum,
   IsNotEmpty,
+  IsNumber,
   IsOptional,
   IsString,
 } from 'class-validator';
@@ -49,11 +50,14 @@ export class EntityDto {
     example: '2',
     description: 'Стартовае значение сущности',
   })
-  @IsString({
-    message: 'Это должна быть строка',
-  })
+  @IsNumber(
+    {},
+    {
+      message: 'Это должна быть число',
+    },
+  )
   @IsNotEmpty({ message: 'Это поле обязательно' })
-  startValue: string;
+  value: number;
 
   @ApiProperty({
     example: EEntityAction.DECREMENT,

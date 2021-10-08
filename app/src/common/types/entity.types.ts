@@ -5,6 +5,6 @@ export interface IEntityFields {
   startDate: Date;
   finishDate: Date | null;
   time: boolean;
-  startValue: string;
+  value: string;
   action: CreateEntityDtoActionEnum;
 }

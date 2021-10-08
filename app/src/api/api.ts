@@ -78,10 +78,10 @@ export interface CreateEntityDto {
     time: boolean;
     /**
      * Стартовае значение сущности
-     * @type {string}
+     * @type {number}
      * @memberof CreateEntityDto
      */
-    startValue: string;
+    value: number;
     /**
      * Увеличиваем или уменьшем значение сущности
      * @type {string}
@@ -150,10 +150,10 @@ export interface GetEntityDto {
     time: boolean;
     /**
      * Стартовае значение сущности
-     * @type {string}
+     * @type {number}
      * @memberof GetEntityDto
      */
-    startValue: string;
+    value: number;
     /**
      * Увеличиваем или уменьшем значение сущности
      * @type {string}
@@ -209,10 +209,10 @@ export interface UpdatedEntityDto {
     time: boolean;
     /**
      * Стартовае значение сущности
-     * @type {string}
+     * @type {number}
      * @memberof UpdatedEntityDto
      */
-    startValue: string;
+    value: number;
     /**
      * Увеличиваем или уменьшем значение сущности
      * @type {string}

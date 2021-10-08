@@ -66,7 +66,7 @@ export class EntityService {
       where: { id, userId },
     });
     if (entity) {
-      entity.startValue = String(Number(entity.startValue) + 1);
+      entity.value = entity.value + 1;
       await entity.save();
     } else {
       throw new HttpException(
@@ -81,7 +81,7 @@ export class EntityService {
       where: { id, userId },
     });
     if (entity) {
-      entity.startValue = String(Number(entity.startValue) - 1);
+      entity.value = entity.value - 1;
       await entity.save();
     } else {
       throw new HttpException(
