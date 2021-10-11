@@ -15,7 +15,7 @@ import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
 import { IEntityFields } from '../../../../common/types/entity.types';
-import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
+import { CreateEntityDto, EntityAction } from '../../../../api';
 import { createEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
@@ -39,7 +39,7 @@ const CreateEntity = observer(() => {
       finishDate: null,
       time: false,
       value: '',
-      action: CreateEntityDtoActionEnum.Increment,
+      action: EntityAction.Increment,
     },
   });
 

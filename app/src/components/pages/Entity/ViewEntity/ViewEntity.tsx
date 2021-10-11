@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import { Grid } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -14,6 +14,7 @@ import Archive from '@material-ui/icons/Archive';
 import FileCopy from '@material-ui/icons/FileCopy';
 import Edit from '@material-ui/icons/Edit';
 import Save from '@material-ui/icons/Save';
+import Box from '@mui/material/Box';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { EActionType } from 'common/types/common.types';
@@ -21,8 +22,8 @@ import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
 import { IEntityFields } from '../../../../common/types/entity.types';
-import { CreateEntityDto, CreateEntityDtoActionEnum } from '../../../../api';
-import { createEntity } from '../../../../features/entity/api';
+import { CreateEntityDto, EntityAction } from '../../../../api';
+import { createEntity, getEntityById } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 import { FooterWithPrimaryButton as FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
@@ -32,7 +33,7 @@ const schema = object().shape({
   value: validationString,
 });
 
-// TODO Мы должны уметь просматривать, редактировать, удалять, архивировать, клонировать,
+// TODO Мы должны уметь просматривать, редактировать, удалять, клонировать,
 
 const ViewEntity = observer(() => {
   const classes = createEntityStyles();
@@ -48,9 +49,38 @@ const ViewEntity = observer(() => {
       finishDate: null,
       time: false,
       value: '',
-      action: CreateEntityDtoActionEnum.Increment,
+      action: EntityAction.Increment,
     },
   });
+
+  const { reset } = methods;
+
+  useEffect(() => {
+    if (id) {
+      try {
+        const loadData = async () => {
+          const entity = await getEntityById(id);
+          EntityStore.setEntity(entity);
+        };
+
+        loadData();
+      } catch (e) {
+        ErrorNotification(e);
+      }
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (EntityStore.entity) {
+      const entity: IEntityFields = {
+        ...EntityStore.entity,
+        value: String(EntityStore.entity.value),
+        startDate: new Date(EntityStore.entity.startDate),
+        finishDate: EntityStore.entity.finishDate ? new Date(EntityStore.entity.finishDate) : null,
+      };
+      reset(entity);
+    }
+  }, [EntityStore.entity]);
 
   const onSubmit = async (data: IEntityFields) => {
     try {
@@ -72,6 +102,11 @@ const ViewEntity = observer(() => {
     }
   };
 
+  const handleOnClickDelete = () => console.log('delete');
+  // const handleOnClickArchive = () => console.log('archive');
+  const handleOnClickCopy = () => console.log('copy');
+  const handleOnClickEdit = () => console.log('edit');
+
   return (
     <Grid container className={classes.container}>
       <Header title='Просмотр сущности' />
@@ -82,22 +117,24 @@ const ViewEntity = observer(() => {
           </form>
         </FormProvider>
       </CounterBlock>
-      <FooterWithPrimaryButton onClick={methods.handleSubmit(onSubmit)}>
-        <IconButton size='large'>
-          <DeleteForever />
-        </IconButton>
-        <IconButton size='large'>
-          <Archive />
-        </IconButton>
-        <IconButton size='large'>
-          <FileCopy />
-        </IconButton>
-        <IconButton size='large'>
-          <Edit />
-        </IconButton>
-        <IconButton size='large'>
-          <Save />
-        </IconButton>
+      <FooterWithPrimaryButton primaryButtonVisible={false} onClick={methods.handleSubmit(onSubmit)}>
+        <Box display='flex' justifyContent='space-between' width='100%'>
+          <IconButton size='large' onClick={handleOnClickDelete}>
+            <DeleteForever />
+          </IconButton>
+          {/* 
+          // TODO пока не понятно что с архивом делать
+          <IconButton size='large' onClick={handleOnClickArchive}>
+            <Archive />
+          </IconButton> 
+          */}
+          <IconButton size='large' onClick={handleOnClickCopy}>
+            <FileCopy />
+          </IconButton>
+          <IconButton size='large' onClick={handleOnClickEdit}>
+            <Edit />
+          </IconButton>
+        </Box>
       </FooterWithPrimaryButton>
     </Grid>
   );

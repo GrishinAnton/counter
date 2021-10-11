@@ -1,4 +1,4 @@
-import { CreateEntityDtoActionEnum } from '../../api';
+import { EntityAction } from '../../api';
 
 export interface IEntityFields {
   name: string;
@@ -6,5 +6,5 @@ export interface IEntityFields {
   finishDate: Date | null;
   time: boolean;
   value: string;
-  action: CreateEntityDtoActionEnum;
+  action: EntityAction;
 }

@@ -4,12 +4,18 @@ import { GetEntityDto } from '../api';
 class EntityStore {
   entities: GetEntityDto[] = [];
 
+  entity: GetEntityDto | null = null;
+
   constructor() {
     makeAutoObservable(this);
   }
 
   setEntities(entities: GetEntityDto[]) {
     this.entities = entities;
+  }
+
+  setEntity(entity: GetEntityDto) {
+    this.entity = entity;
   }
 
   addEntity(entity: GetEntityDto) {

@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import React from 'react';
-import { GetEntityDto, GetEntityDtoActionEnum } from 'api';
+import { GetEntityDto, EntityAction } from 'api';
 
 import { Typography } from 'components/ui/Typography/Typography';
 import { counterCardUseStyles } from './styles';
@@ -21,7 +21,7 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
   const classesContainer = counterCardUseStyles();
 
   const handleButtonCountClick = async () => {
-    if (entity.action === GetEntityDtoActionEnum.Increment) {
+    if (entity.action === EntityAction.Increment) {
       try {
         await updateEntityIncrement({ id: String(entity.id) });
         EntityStore.incEntity(entity.id);

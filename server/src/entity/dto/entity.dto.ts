@@ -63,6 +63,7 @@ export class EntityDto {
     example: EEntityAction.DECREMENT,
     description: 'Увеличиваем или уменьшем значение сущности',
     enum: EEntityAction,
+    enumName: 'EntityAction',
   })
   @IsEnum(EEntityAction, {
     message: 'Не соответствет валидации',

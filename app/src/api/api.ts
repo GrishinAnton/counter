@@ -83,22 +83,12 @@ export interface CreateEntityDto {
      */
     value: number;
     /**
-     * Увеличиваем или уменьшем значение сущности
-     * @type {string}
+     * 
+     * @type {EntityAction}
      * @memberof CreateEntityDto
      */
-    action: CreateEntityDtoActionEnum;
+    action: EntityAction;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateEntityDtoActionEnum {
-    Increment = 'INCREMENT',
-    Decrement = 'DECREMENT'
-}
-
 /**
  * 
  * @export
@@ -118,6 +108,17 @@ export interface CreateUserDto {
      */
     password: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+
+export enum EntityAction {
+    Increment = 'INCREMENT',
+    Decrement = 'DECREMENT'
+}
+
 /**
  * 
  * @export
@@ -155,11 +156,11 @@ export interface GetEntityDto {
      */
     value: number;
     /**
-     * Увеличиваем или уменьшем значение сущности
-     * @type {string}
+     * 
+     * @type {EntityAction}
      * @memberof GetEntityDto
      */
-    action: GetEntityDtoActionEnum;
+    action: EntityAction;
     /**
      * ID сущности
      * @type {number}
@@ -167,16 +168,6 @@ export interface GetEntityDto {
      */
     id: number;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum GetEntityDtoActionEnum {
-    Increment = 'INCREMENT',
-    Decrement = 'DECREMENT'
-}
-
 /**
  * 
  * @export
@@ -214,11 +205,11 @@ export interface UpdatedEntityDto {
      */
     value: number;
     /**
-     * Увеличиваем или уменьшем значение сущности
-     * @type {string}
+     * 
+     * @type {EntityAction}
      * @memberof UpdatedEntityDto
      */
-    action: UpdatedEntityDtoActionEnum;
+    action: EntityAction;
     /**
      * ID сущности
      * @type {number}
@@ -226,16 +217,6 @@ export interface UpdatedEntityDto {
      */
     id: number;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdatedEntityDtoActionEnum {
-    Increment = 'INCREMENT',
-    Decrement = 'DECREMENT'
-}
-
 
 /**
  * DefaultApi - axios parameter creator

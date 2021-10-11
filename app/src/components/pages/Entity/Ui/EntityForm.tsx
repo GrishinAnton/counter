@@ -4,7 +4,7 @@ import { ControllerTextField } from 'components/layout/ControllerComponent/Contr
 import { ControllerDatePicker } from 'components/layout/ControllerComponent/ControllerDatePicker/ControllerDatePicker';
 import { ControllerCheckbox } from 'components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox';
 import { ControllerRadio } from 'components/layout/ControllerComponent/ControllerRadio/ControllerRadio';
-import { CreateEntityDtoActionEnum } from '../../../../api';
+import { EntityAction } from '../../../../api';
 
 interface IProps {
   type: keyof IActionType;
@@ -65,7 +65,7 @@ export const EntityForm: React.FC<IProps> = ({ type }) => {
     () => [
       {
         label: 'Увеличение',
-        value: CreateEntityDtoActionEnum.Increment,
+        value: EntityAction.Increment,
         type: 'radio',
         required: false,
         fieldType: 'radio',
@@ -73,7 +73,7 @@ export const EntityForm: React.FC<IProps> = ({ type }) => {
       },
       {
         label: 'Уменьшение',
-        value: CreateEntityDtoActionEnum.Decrement,
+        value: EntityAction.Decrement,
         type: 'radio',
         required: false,
         fieldType: 'radio',
