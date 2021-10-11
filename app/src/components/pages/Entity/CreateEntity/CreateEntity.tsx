@@ -5,7 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationString } from 'common/validation/validationSchema';
+import { dateStartValidation, validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
 import { observer } from 'mobx-react-lite';
 import { EActionType } from 'common/types/common.types';
@@ -24,6 +24,7 @@ import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/Foo
 const schema = object().shape({
   name: validationString,
   value: validationString,
+  startData: dateStartValidation,
 });
 
 const CreateEntity = observer(() => {

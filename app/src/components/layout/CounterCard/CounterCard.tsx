@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import React from 'react';
 import { GetEntityDto, EntityAction } from 'api';
+import { useHistory } from 'react-router';
 
 import { Typography } from 'components/ui/Typography/Typography';
 import { counterCardUseStyles } from './styles';
@@ -12,6 +13,7 @@ import { updateEntityDecrement, updateEntityIncrement } from '../../../features/
 import { Notification } from '../Notification/Notification';
 import { ErrorNotification } from '../ErrorNotification/ErrorNotification';
 import EntityStore from '../../../store/EntityStore';
+import { ERoutes } from '../../../router/config';
 
 interface IProps {
   entity: GetEntityDto;
@@ -19,6 +21,7 @@ interface IProps {
 
 export const CounterCard: React.FC<IProps> = ({ entity }) => {
   const classesContainer = counterCardUseStyles();
+  const history = useHistory();
 
   const handleButtonCountClick = async () => {
     if (entity.action === EntityAction.Increment) {
@@ -40,6 +43,8 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
     }
   };
 
+  const handleSettingsButtonOnClick = () => history.push(`${entity.id}${ERoutes.VIEW_ENTITY}`);
+
   return (
     <CounterBlock>
       <Grid container direction='column' alignItems='center' className={classesContainer.container}>
@@ -51,7 +56,7 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
               {/* Верхний блок */}
               <InformationBlock startDate={entity.startDate} finishDate={entity.finishDate} />
               {/* Блок с иконками */}
-              <SettingsBlock />
+              <SettingsBlock onClick={handleSettingsButtonOnClick} />
             </Grid>
           </Grid>
           {/* Блок с кнопкой */}

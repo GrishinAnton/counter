@@ -1,4 +1,5 @@
-import { string, number, ref } from 'yup';
+import { formatISO, startOfDay } from 'date-fns';
+import { string, number, ref, date } from 'yup';
 import { validationMessage } from './validationMessage';
 
 export const validationString = string()
@@ -27,3 +28,8 @@ export const passwordValidation = string()
   .required(validationMessage.required);
 
 export const passwordValidationConfirm = string().oneOf([ref('password'), null], 'Пароли должны совпадать');
+
+export const dateStartValidation = date()
+  .typeError(validationMessage.typeError)
+  .required(validationMessage.required)
+  .min(formatISO(startOfDay(new Date())), validationMessage.minDate);

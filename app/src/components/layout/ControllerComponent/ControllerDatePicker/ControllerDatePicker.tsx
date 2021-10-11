@@ -22,7 +22,6 @@ export const ControllerDatePicker: React.FC<IProps & Omit<KeyboardDatePickerProp
         <DatePicker
           {...other}
           innerRef={ref}
-          disablePast
           disabled={fieldProp.disabled || rest.disabled}
           fullWidth
           placeholder={fieldProp.placeholder}
