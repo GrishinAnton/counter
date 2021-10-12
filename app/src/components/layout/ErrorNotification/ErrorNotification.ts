@@ -1,10 +1,12 @@
+import _ from 'lodash';
 import { Notification } from '../Notification/Notification';
 
 export const ErrorNotification = (error: any) => {
-  if (error && error.message) {
+  if (error.message) {
     Notification({ message: error.message, type: 'error' });
   }
-  if (error && error.length) {
+
+  if (_.isArray(error) && error.length) {
     let message: string = '';
     error.forEach((validationError: any[]) => {
       message += Object.values(validationError);
@@ -12,4 +14,6 @@ export const ErrorNotification = (error: any) => {
 
     Notification({ message, type: 'error' });
   }
+
+  Notification({ message: 'Ошибка', type: 'error' });
 };

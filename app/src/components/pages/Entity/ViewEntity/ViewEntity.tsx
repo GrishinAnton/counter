@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import { Grid } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -10,11 +10,13 @@ import { ERoutes } from 'router/config';
 import { observer } from 'mobx-react-lite';
 import { IconButton } from 'components/ui/IconButton/IconButton';
 import DeleteForever from '@material-ui/icons/DeleteForever';
-import Archive from '@material-ui/icons/Archive';
-import FileCopy from '@material-ui/icons/FileCopy';
+// import Archive from '@material-ui/icons/Archive';
+// import FileCopy from '@material-ui/icons/FileCopy';
 import Edit from '@material-ui/icons/Edit';
-import Save from '@material-ui/icons/Save';
-import Box from '@mui/material/Box';
+// import Save from '@material-ui/icons/Save';
+import { Modal } from 'components/ui/Modal/Modal';
+// import { Box } from 'components/ui/Box/Box';
+import { ModalFooter } from 'components/ui/Modal/ModalFooter';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { EActionType } from 'common/types/common.types';
@@ -23,10 +25,11 @@ import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
 import { IEntityFields } from '../../../../common/types/entity.types';
 import { CreateEntityDto, EntityAction } from '../../../../api';
-import { createEntity, getEntityById } from '../../../../features/entity/api';
+import { createEntity, deleteEntity, getEntityById } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 import { FooterWithPrimaryButton as FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
+import { Typography } from '../../../ui/Typography/Typography';
 
 const schema = object().shape({
   name: validationString,
@@ -39,6 +42,8 @@ const ViewEntity = observer(() => {
   const classes = createEntityStyles();
   const history = useHistory();
   const { id }: { id: string | undefined } = useParams();
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   const methods = useForm<IEntityFields>({
     mode: 'onChange',
@@ -80,7 +85,7 @@ const ViewEntity = observer(() => {
       };
       reset(entity);
     }
-  }, [EntityStore.entity]);
+  }, [reset, EntityStore.entity]);
 
   const onSubmit = async (data: IEntityFields) => {
     try {
@@ -102,24 +107,39 @@ const ViewEntity = observer(() => {
     }
   };
 
-  const handleOnClickDelete = () => console.log('delete');
+  const handleOnClickDelete = async () => {
+    if (EntityStore.entity) {
+      try {
+        await deleteEntity(String(EntityStore.entity.id));
+        history.push(ERoutes.HOME);
+        Notification({ message: 'Сущность удалена' });
+      } catch (e) {
+        ErrorNotification(e);
+      }
+    }
+    setModalVisible(false);
+  };
   // const handleOnClickArchive = () => console.log('archive');
-  const handleOnClickCopy = () => console.log('copy');
+  // const handleOnClickCopy = () => console.log('copy');
   const handleOnClickEdit = () => console.log('edit');
 
+  const handleModalClose = () => setModalVisible(false);
+  const handleModalOpen = () => setModalVisible(true);
+
   return (
-    <Grid container className={classes.container}>
-      <Header title='Просмотр сущности' />
-      <CounterBlock>
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <EntityForm type={EActionType.VIEW} />
-          </form>
-        </FormProvider>
-      </CounterBlock>
-      <FooterWithPrimaryButton primaryButtonVisible={false} onClick={methods.handleSubmit(onSubmit)}>
-        <Box display='flex' justifyContent='space-between' width='100%'>
-          <IconButton size='large' onClick={handleOnClickDelete}>
+    <>
+      <Grid container className={classes.container}>
+        <Header title='Просмотр сущности' />
+        <CounterBlock>
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              <EntityForm type={EActionType.VIEW} />
+            </form>
+          </FormProvider>
+        </CounterBlock>
+        <FooterWithPrimaryButton primaryButtonVisible={false} onClick={methods.handleSubmit(onSubmit)}>
+          {/* <Box display='flex' justifyContent='space-between' width='100%'> */}
+          <IconButton size='large' onClick={handleModalOpen}>
             <DeleteForever />
           </IconButton>
           {/* 
@@ -128,15 +148,22 @@ const ViewEntity = observer(() => {
             <Archive />
           </IconButton> 
           */}
-          <IconButton size='large' onClick={handleOnClickCopy}>
-            <FileCopy />
-          </IconButton>
+          {/* 
+            <IconButton size='large' onClick={handleOnClickCopy}>
+              <FileCopy />
+            </IconButton> 
+            */}
           <IconButton size='large' onClick={handleOnClickEdit}>
             <Edit />
           </IconButton>
-        </Box>
-      </FooterWithPrimaryButton>
-    </Grid>
+          {/* </Box> */}
+        </FooterWithPrimaryButton>
+      </Grid>
+      <Modal open={modalVisible}>
+        <Typography> Удалить сущность?</Typography>
+        <ModalFooter onCancelClick={handleModalClose} onOkClick={handleOnClickDelete} />
+      </Modal>
+    </>
   );
 });
 

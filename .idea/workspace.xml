@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Правка значения value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/EntityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/EntityForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -148,6 +150,8 @@
       <workItem from="1633512019050" duration="3793000" />
       <workItem from="1633593678107" duration="5604000" />
       <workItem from="1633614039353" duration="7707000" />
+      <workItem from="1633949935125" duration="255000" />
+      <workItem from="1633954608593" duration="222000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>

@@ -24,7 +24,7 @@ import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/Foo
 const schema = object().shape({
   name: validationString,
   value: validationString,
-  startData: dateStartValidation,
+  startDate: dateStartValidation,
 });
 
 const CreateEntity = observer(() => {

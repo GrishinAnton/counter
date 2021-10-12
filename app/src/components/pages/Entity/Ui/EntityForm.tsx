@@ -58,7 +58,7 @@ export const EntityForm: React.FC<IProps> = ({ type }) => {
         disabled: type === EActionType.VIEW,
       },
     ],
-    [],
+    [type],
   );
 
   const counts: IFormFieldForRadio[] = useMemo(
@@ -80,7 +80,7 @@ export const EntityForm: React.FC<IProps> = ({ type }) => {
         disabled: type === EActionType.VIEW,
       },
     ],
-    [],
+    [type],
   );
 
   return (
