@@ -9,27 +9,26 @@ import { validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
 import { observer } from 'mobx-react-lite';
 import { IconButton } from 'components/ui/IconButton/IconButton';
-import DeleteForever from '@material-ui/icons/DeleteForever';
 // import Archive from '@material-ui/icons/Archive';
 // import FileCopy from '@material-ui/icons/FileCopy';
-import Edit from '@material-ui/icons/Edit';
-// import Save from '@material-ui/icons/Save';
+import { Edit, Save, Close, DeleteForever } from '@mui/icons-material';
 import { Modal } from 'components/ui/Modal/Modal';
 // import { Box } from 'components/ui/Box/Box';
 import { ModalFooter } from 'components/ui/Modal/ModalFooter';
 
 import { Notification } from 'components/layout/Notification/Notification';
-import { EActionType } from 'common/types/common.types';
+import { EActionType, IActionType } from 'common/types/common.types';
 import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
-import { IEntityFields } from '../../../../common/types/entity.types';
-import { CreateEntityDto, EntityAction } from '../../../../api';
-import { createEntity, deleteEntity, getEntityById } from '../../../../features/entity/api';
+import { IViewEntityFields } from '../../../../common/types/entity.types';
+import { EntityAction, UpdatedEntityDto } from '../../../../api';
+import { deleteEntity, getEntityById, updateEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 import { FooterWithPrimaryButton as FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { Typography } from '../../../ui/Typography/Typography';
+import { EntityFactory } from '../common/factory/factory';
 
 const schema = object().shape({
   name: validationString,
@@ -44,8 +43,10 @@ const ViewEntity = observer(() => {
   const { id }: { id: string | undefined } = useParams();
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [type, setType] = useState<keyof IActionType>(EActionType.VIEW);
+  const [saveButtonVisible, setSaveButtonVisible] = useState(false);
 
-  const methods = useForm<IEntityFields>({
+  const methods = useForm<IViewEntityFields>({
     mode: 'onChange',
     resolver: yupResolver(schema),
     defaultValues: {
@@ -77,31 +78,24 @@ const ViewEntity = observer(() => {
 
   useEffect(() => {
     if (EntityStore.entity) {
-      const entity: IEntityFields = {
-        ...EntityStore.entity,
-        value: String(EntityStore.entity.value),
-        startDate: new Date(EntityStore.entity.startDate),
-        finishDate: EntityStore.entity.finishDate ? new Date(EntityStore.entity.finishDate) : null,
-      };
-      reset(entity);
+      reset(EntityFactory.viewEntityTransform(EntityStore.entity));
     }
   }, [reset, EntityStore.entity]);
 
-  const onSubmit = async (data: IEntityFields) => {
+  const onSubmit = async (data: IViewEntityFields) => {
     try {
-      const params: CreateEntityDto = {
+      const params: UpdatedEntityDto = {
         ...data,
         value: Number(data.value),
         startDate: String(data.startDate.toISOString()),
         finishDate: data.finishDate ? String(data.finishDate.toISOString()) : undefined,
       };
-      const createdEntity = await createEntity({ createEntityDto: params });
+      const updateedEntity = await updateEntity({ updatedEntityDto: params });
 
-      if (createdEntity) {
-        EntityStore.addEntity(createdEntity);
-        history.push(ERoutes.HOME);
-        Notification({ message: 'Сущность добавлена' });
-      }
+      EntityStore.setEntity(params);
+      setSaveButtonVisible(false);
+      setType(EActionType.VIEW);
+      Notification({ message: 'Сущность обнавлена' });
     } catch (e) {
       ErrorNotification(e);
     }
@@ -121,7 +115,16 @@ const ViewEntity = observer(() => {
   };
   // const handleOnClickArchive = () => console.log('archive');
   // const handleOnClickCopy = () => console.log('copy');
-  const handleOnClickEdit = () => console.log('edit');
+  const handleOnClickEdit = () => {
+    setSaveButtonVisible(true);
+    setType(EActionType.EDIT);
+  };
+
+  const handleOnClickEditCancel = () => {
+    setSaveButtonVisible(false);
+    setType(EActionType.VIEW);
+    if (EntityStore.entity) reset(EntityFactory.viewEntityTransform(EntityStore.entity));
+  };
 
   const handleModalClose = () => setModalVisible(false);
   const handleModalOpen = () => setModalVisible(true);
@@ -133,11 +136,15 @@ const ViewEntity = observer(() => {
         <CounterBlock>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <EntityForm type={EActionType.VIEW} />
+              <EntityForm type={type} />
             </form>
           </FormProvider>
         </CounterBlock>
-        <FooterWithPrimaryButton primaryButtonVisible={false} onClick={methods.handleSubmit(onSubmit)}>
+        <FooterWithPrimaryButton
+          primaryButtonVisible={saveButtonVisible}
+          primaryButtonIcon={<Save />}
+          onClick={methods.handleSubmit(onSubmit)}
+        >
           {/* <Box display='flex' justifyContent='space-between' width='100%'> */}
           <IconButton size='large' onClick={handleModalOpen}>
             <DeleteForever />
@@ -153,8 +160,8 @@ const ViewEntity = observer(() => {
               <FileCopy />
             </IconButton> 
             */}
-          <IconButton size='large' onClick={handleOnClickEdit}>
-            <Edit />
+          <IconButton size='large' onClick={saveButtonVisible ? handleOnClickEditCancel : handleOnClickEdit}>
+            {saveButtonVisible ? <Close /> : <Edit />}
           </IconButton>
           {/* </Box> */}
         </FooterWithPrimaryButton>

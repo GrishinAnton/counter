@@ -8,3 +8,7 @@ export interface IEntityFields {
   value: string;
   action: EntityAction;
 }
+
+export interface IViewEntityFields extends IEntityFields {
+  id: number;
+}

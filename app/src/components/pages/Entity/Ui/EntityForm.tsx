@@ -29,7 +29,7 @@ export const EntityForm: React.FC<IProps> = ({ type }) => {
         required: false,
         placeholder: 'Введите дату старта',
         fieldType: 'date',
-        disabled: type === EActionType.VIEW,
+        disabled: type !== EActionType.CREATE,
       },
       {
         label: 'Дата окончания',
