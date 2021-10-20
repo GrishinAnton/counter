@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Revert">
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/common/styles/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/common/styles/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Grid/Grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Grid/Grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/IconButton/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/IconButton/IconButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Loading/Loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Loading/Loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

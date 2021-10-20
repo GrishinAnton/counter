@@ -17,14 +17,6 @@ const containerBlockStyles = makeStyles(() => ({
   },
 }));
 
-// const CssContentCenter = css({
-//   display: 'flex',
-//   height: '100%',
-//   flexDirection: 'column',
-//   justifyContent: 'center',
-//   alignItems: 'center',
-// });
-
 interface IProps {
   contentPosition?: 'center' | 'default';
 }
@@ -34,5 +26,5 @@ export const CounterBlock: React.FC<IProps> = ({ children, contentPosition = 'de
 
   const containerClasses = cx({ [classes.container]: true, [classes.contentCenter]: contentPosition === 'center' });
 
-  return <div className={containerClasses}>{children}</div>;
+  return <Box className={containerClasses}>{children}</Box>;
 };

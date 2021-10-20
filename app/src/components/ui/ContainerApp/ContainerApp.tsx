@@ -17,5 +17,5 @@ export const containerStyles = makeStyles(() => ({
 
 export const ContainerApp: React.FC = ({ children }) => {
   const classes = containerStyles();
-  return <div className={classes.root}>{children}</div>;
+  return <Box className={classes.root}>{children}</Box>;
 };
