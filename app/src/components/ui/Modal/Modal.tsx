@@ -1,5 +1,5 @@
-import Dialog, { DialogProps } from '@mui/material/Dialog';
 import React from 'react';
+import { Dialog, DialogProps } from '@material-ui/core';
 import { Box } from '../Box/Box';
 
 export const Modal: React.FC<DialogProps> = ({ ...rest }) => (

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Router } from 'react-router-dom';
 import { createTheme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/styles';
 import { App } from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
@@ -14,9 +16,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
       <ThemeProvider theme={theme}>
-        <StyledEngineProvider injectFirst>
+        <StylesProvider injectFirst>
           <App />
-        </StyledEngineProvider>
+        </StylesProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,

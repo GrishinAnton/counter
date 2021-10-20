@@ -11,6 +11,14 @@ export const createEntityStyles = makeStyles(() => ({
     maxWidth: 'inherit',
     width: 'inherit',
   },
+  fabButton: {
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+  },
 }));
 
 // export const StyledEntityAppBar = styled()(() => ({

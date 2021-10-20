@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton as IconButtonUi, IconButtonProps } from '@mui/material';
+import { IconButton as IconButtonUi, IconButtonProps } from '@material-ui/core';
 
 interface IProps {
   onClick?: () => void;

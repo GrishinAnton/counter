@@ -143,7 +143,7 @@ const ViewEntity = observer(() => {
           onClick={methods.handleSubmit(onSubmit)}
         >
           {/* <Box display='flex' justifyContent='space-between' width='100%'> */}
-          <IconButton size='large' onClick={handleModalOpen}>
+          <IconButton size='medium' onClick={handleModalOpen}>
             <DeleteForever />
           </IconButton>
           {/* 
@@ -157,7 +157,7 @@ const ViewEntity = observer(() => {
               <FileCopy />
             </IconButton> 
             */}
-          <IconButton size='large' onClick={saveButtonVisible ? handleOnClickEditCancel : handleOnClickEdit}>
+          <IconButton size='medium' onClick={saveButtonVisible ? handleOnClickEditCancel : handleOnClickEdit}>
             {saveButtonVisible ? <Close /> : <Edit />}
           </IconButton>
           {/* </Box> */}
