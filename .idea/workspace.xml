@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Правка значения value">
-      <change afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/styles.ts" afterDir="false" />
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Revert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerRadio/ControllerRadio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerRadio/ControllerRadio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Box/Box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Box/Box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ButtonBase/ButtonBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ButtonBase/ButtonBase.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633688033048</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Revert">
+      <created>1634713530881</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1634713530881</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +378,8 @@
     <MESSAGE value="Добавление инкремента/декремента на беке" />
     <MESSAGE value="Добавление инкремента/декремента на фронте" />
     <MESSAGE value="Правка значения value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Правка значения value" />
+    <MESSAGE value="Revert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
