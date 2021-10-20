@@ -8,13 +8,10 @@ import { validationString } from 'common/validation/validationSchema';
 import { ERoutes } from 'router/config';
 import { observer } from 'mobx-react-lite';
 import { IconButton } from 'components/ui/IconButton/IconButton';
-// import Archive from '@material-ui/icons/Archive';
-// import FileCopy from '@material-ui/icons/FileCopy';
-import { Edit, Save, Close, DeleteForever } from '@mui/icons-material';
 import { Modal } from 'components/ui/Modal/Modal';
-// import { Box } from 'components/ui/Box/Box';
 import { ModalFooter } from 'components/ui/Modal/ModalFooter';
 import { Grid } from 'components/ui/Grid/Grid';
+import { Close, DeleteForever, Edit, Save } from '@material-ui/icons';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { EActionType, IActionType } from 'common/types/common.types';
@@ -26,7 +23,7 @@ import { EntityAction, UpdatedEntityDto } from '../../../../api';
 import { deleteEntity, getEntityById, updateEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
-import { FooterWithPrimaryButton as FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
+import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { Typography } from '../../../ui/Typography/Typography';
 import { EntityFactory } from '../common/factory/factory';
 
@@ -80,7 +77,7 @@ const ViewEntity = observer(() => {
     if (EntityStore.entity) {
       reset(EntityFactory.viewEntityTransform(EntityStore.entity));
     }
-  }, [reset, EntityStore.entity]);
+  }, [reset]);
 
   const onSubmit = async (data: IViewEntityFields) => {
     try {

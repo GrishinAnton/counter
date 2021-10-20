@@ -10,6 +10,7 @@ import { observer } from 'mobx-react-lite';
 import { EActionType } from 'common/types/common.types';
 
 import { Notification } from 'components/layout/Notification/Notification';
+import { Grid } from 'components/ui/Grid/Grid';
 import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';

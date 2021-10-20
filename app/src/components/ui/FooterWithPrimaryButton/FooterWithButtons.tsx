@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { Add } from '@mui/icons-material';
-import { AppBar, Fab, Toolbar } from '@mui/material';
-import styles from './styles.module.css';
+import { Fab } from '@material-ui/core';
+import { createEntityStyles } from '../../pages/Entity/common/styles/styles';
+import { AppBar } from '../AppBar/AppBar';
 
 interface IProps {
   onClick: () => void;
@@ -15,6 +15,7 @@ export const FooterWithPrimaryButton: React.FC<IProps> = ({
   primaryButtonVisible = true,
   primaryButtonIcon = <AddIcon />,
 }) => {
+
   const classes = createEntityStyles();
   return (
     <AppBar className={classes.appBar} position='fixed'>

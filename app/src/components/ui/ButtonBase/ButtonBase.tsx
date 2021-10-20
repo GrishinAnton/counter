@@ -1,4 +1,4 @@
-import { ButtonBase as UiButtonBase, ButtonBaseProps } from '@mui/material';
+import { ButtonBase as UiButtonBase, ButtonBaseProps } from '@material-ui/core';
 import React from 'react';
 
 export const ButtonBase: React.FC<ButtonBaseProps> = ({ children, ...rest }) => (
