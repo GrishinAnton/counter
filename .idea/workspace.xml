@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="">
+    <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Рефактор">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/common/utils/localStorage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634713530881</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Рефактор">
+      <created>1634716114173</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1634716114173</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +378,6 @@
     <MESSAGE value="Добавление обработки ошибок" />
     <MESSAGE value="Добавление экрана логина" />
     <MESSAGE value="Подключение к проекту формы входа" />
-    <MESSAGE value="Рефактор" />
     <MESSAGE value="Добавление регистрации" />
     <MESSAGE value="Добавление регистрации|авторизации" />
     <MESSAGE value="Доработка авторизации на фронте" />
@@ -383,7 +387,8 @@
     <MESSAGE value="Добавление инкремента/декремента на фронте" />
     <MESSAGE value="Правка значения value" />
     <MESSAGE value="Revert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert" />
+    <MESSAGE value="Рефактор" />
+    <option name="LAST_COMMIT_MESSAGE" value="Рефактор" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

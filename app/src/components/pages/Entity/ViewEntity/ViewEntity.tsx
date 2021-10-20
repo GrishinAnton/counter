@@ -64,6 +64,7 @@ const ViewEntity = observer(() => {
         const loadData = async () => {
           const entity = await getEntityById(id);
           EntityStore.setEntity(entity);
+          EntityStore.entity && reset(EntityFactory.viewEntityTransform(EntityStore.entity));
         };
 
         loadData();
@@ -71,13 +72,7 @@ const ViewEntity = observer(() => {
         ErrorNotification(e);
       }
     }
-  }, [id]);
-
-  useEffect(() => {
-    if (EntityStore.entity) {
-      reset(EntityFactory.viewEntityTransform(EntityStore.entity));
-    }
-  }, [reset]);
+  }, [id, reset]);
 
   const onSubmit = async (data: IViewEntityFields) => {
     try {
