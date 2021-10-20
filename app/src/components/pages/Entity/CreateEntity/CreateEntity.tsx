@@ -1,6 +1,5 @@
 import React from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
-import { Grid } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { object } from 'yup';

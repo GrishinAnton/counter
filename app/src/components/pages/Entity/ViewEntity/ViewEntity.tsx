@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
-import { Grid } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import { object } from 'yup';
@@ -15,6 +14,7 @@ import { Edit, Save, Close, DeleteForever } from '@mui/icons-material';
 import { Modal } from 'components/ui/Modal/Modal';
 // import { Box } from 'components/ui/Box/Box';
 import { ModalFooter } from 'components/ui/Modal/ModalFooter';
+import { Grid } from 'components/ui/Grid/Grid';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { EActionType, IActionType } from 'common/types/common.types';
@@ -90,7 +90,7 @@ const ViewEntity = observer(() => {
         startDate: String(data.startDate.toISOString()),
         finishDate: data.finishDate ? String(data.finishDate.toISOString()) : undefined,
       };
-      const updateedEntity = await updateEntity({ updatedEntityDto: params });
+      await updateEntity({ updatedEntityDto: params });
 
       EntityStore.setEntity(params);
       setSaveButtonVisible(false);

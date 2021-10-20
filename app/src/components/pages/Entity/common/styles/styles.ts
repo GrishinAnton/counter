@@ -12,3 +12,10 @@ export const createEntityStyles = makeStyles(() => ({
     width: 'inherit',
   },
 }));
+
+// export const StyledEntityAppBar = styled()(() => ({
+//   top: 'auto',
+//   bottom: 0,
+//   maxWidth: 'inherit',
+//   width: 'inherit',
+// }));

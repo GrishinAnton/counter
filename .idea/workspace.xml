@@ -6,8 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="91d0af66-d1d6-4a33-b7ca-c8ec6878b204" name="Default Changelist" comment="Правка значения value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/EntityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/EntityForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/BottomNavigation/BottomNavigation.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerInput/ControllerTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerInput/ControllerTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerRadio/ControllerRadio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/ControllerComponent/ControllerRadio/ControllerRadio.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/ButtonBlock/ButtonBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/ButtonBlock/ButtonBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/CounterCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/InformationBlock/InformationBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/InformationBlock/InformationBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/SettingsBlock/SettingsBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/CounterCard/SettingsBlock/SettingsBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/CounterCard/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/layout/EmptyCountBlock/EmptyCountBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/layout/EmptyCountBlock/EmptyCountBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Auth/Ui/AuthForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/CreateEntity/CreateEntity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/Ui/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/ViewEntity/ViewEntity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Entity/common/styles/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Entity/common/styles/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/AppBar/AppBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/AppBar/AppBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Checkbox/Checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Checkbox/Checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerApp/ContainerApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/ContainerBlock/ContainerBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/FooterWithButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/FooterWithPrimaryButton/styles/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Radio/Radio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Radio/Radio.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/TextField/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/TextField/TextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/ui/Typography/Typography.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ui/Typography/Typography.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +50,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -68,7 +95,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -152,6 +179,7 @@
       <workItem from="1633614039353" duration="7707000" />
       <workItem from="1633949935125" duration="255000" />
       <workItem from="1633954608593" duration="222000" />
+      <workItem from="1634132382788" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="Первая версия карточки">
       <created>1622209349049</created>

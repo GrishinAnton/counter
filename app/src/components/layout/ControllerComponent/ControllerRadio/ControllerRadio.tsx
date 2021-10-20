@@ -1,9 +1,8 @@
-import { FormControl, RadioGroup, RadioProps } from '@material-ui/core';
+import { FormControl, RadioGroup, RadioProps, RadioGroupProps } from '@mui/material';
 import { Radio } from 'components/ui/Radio/Radio';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { IFormFieldForRadio } from 'common/types/common.types';
-import { RadioGroupProps } from '@material-ui/core/RadioGroup/RadioGroup';
 
 interface IProp {
   name: string;

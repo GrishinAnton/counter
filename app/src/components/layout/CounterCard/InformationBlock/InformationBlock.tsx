@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 import { format } from 'date-fns';
-import { informationBlockUseStyles } from '../styles';
+import { Grid } from 'components/ui/Grid/Grid';
+import { Box } from 'components/ui/Box/Box';
 import { Typography } from '../../../ui/Typography/Typography';
+import { informationBlockUseStyles } from '../styles';
 
 interface IProps {
   startDate: string;

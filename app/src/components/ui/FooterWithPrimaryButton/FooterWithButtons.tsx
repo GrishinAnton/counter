@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-import { Fab } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import { AppBar } from 'components/ui/AppBar/AppBar';
-import { createEntityStyles } from './styles/styles';
+import { Add } from '@mui/icons-material';
+import { AppBar, Fab, Toolbar } from '@mui/material';
+import styles from './styles.module.css';
 
 interface IProps {
   onClick: () => void;

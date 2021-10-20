@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import cx from 'classnames';
+import { Box } from '../Box/Box';
 
 const containerBlockStyles = makeStyles(() => ({
   container: {
@@ -15,6 +16,14 @@ const containerBlockStyles = makeStyles(() => ({
     alignItems: 'center',
   },
 }));
+
+// const CssContentCenter = css({
+//   display: 'flex',
+//   height: '100%',
+//   flexDirection: 'column',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+// });
 
 interface IProps {
   contentPosition?: 'center' | 'default';

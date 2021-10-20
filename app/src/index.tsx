@@ -2,15 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Router } from 'react-router-dom';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { App } from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { history } from './common/utils/history';
 
+const theme = createTheme();
+
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <StyledEngineProvider injectFirst>
+          <App />
+        </StyledEngineProvider>
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
 import { Button } from 'components/ui/Button/Button';
 import { Typography } from 'components/ui/Typography/Typography';
 import { useHistory } from 'react-router';
 import { ERoutes } from 'router/config';
+import { Box } from 'components/ui/Box/Box';
 
 export const EmptyCountBlock = () => {
   const history = useHistory();

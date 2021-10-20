@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { MAX_WIDTH } from 'theme';
+import { Box } from '../Box/Box';
 
 export const containerStyles = makeStyles(() => ({
   root: {

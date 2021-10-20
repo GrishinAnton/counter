@@ -1,5 +1,5 @@
-import { Box } from '@material-ui/core';
 import React, { useMemo } from 'react';
+import { Box } from 'components/ui/Box/Box';
 import { IFormField } from '../../../../common/types/common.types';
 import { ControllerTextField } from '../../../layout/ControllerComponent/ControllerInput/ControllerTextField';
 import { EAuthType } from '../Auth';

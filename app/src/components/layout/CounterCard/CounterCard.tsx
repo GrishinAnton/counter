@@ -1,9 +1,9 @@
-import { Grid } from '@material-ui/core';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import React from 'react';
 import { GetEntityDto, EntityAction } from 'api';
 import { useHistory } from 'react-router';
 
+import { Grid } from 'components/ui/Grid/Grid';
 import { Typography } from 'components/ui/Typography/Typography';
 import { counterCardUseStyles } from './styles';
 import { InformationBlock } from './InformationBlock/InformationBlock';

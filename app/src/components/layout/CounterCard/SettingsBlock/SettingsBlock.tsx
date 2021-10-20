@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, IconButton } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { Grid } from 'components/ui/Grid/Grid';
+import { IconButton } from 'components/ui/IconButton/IconButton';
 import { settingsBlockUseStyles } from '../styles';
 
 interface IProp {
