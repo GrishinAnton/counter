@@ -3,7 +3,6 @@ import { TextFieldProps } from '@mui/material';
 import { IFormField } from 'common/types/common.types';
 import { TextField } from 'components/ui/TextField/TextField';
 import { Controller, useFormContext } from 'react-hook-form';
-import { Box } from 'components/ui/Box/Box';
 
 interface IProps {
   fieldProp: IFormField;
@@ -19,9 +18,10 @@ export const ControllerTextField: React.FC<IProps & TextFieldProps> = ({ fieldPr
     <Controller
       name={fieldProp.name}
       control={control}
-      render={({ field: { ...other } }) => (
+      render={({ field: { ref, ...other } }) => (
         <TextField
           {...other}
+          inputRef={ref}
           disabled={fieldProp.disabled || rest.disabled}
           fullWidth
           placeholder={fieldProp.placeholder}
@@ -30,7 +30,7 @@ export const ControllerTextField: React.FC<IProps & TextFieldProps> = ({ fieldPr
           label={fieldProp.label}
           required={fieldProp.required}
           error={fieldProp.name in errors}
-          helperText={<Box>errors[fieldProp.name]?.message</Box>}
+          helperText={errors[fieldProp.name]?.message as string}
         />
       )}
     />

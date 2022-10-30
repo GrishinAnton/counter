@@ -9,7 +9,7 @@ export const CounterBlock = ({ children, contentPosition = 'default' }: IProps) 
   return (
     <Box
       sx={[
-        { padding: 16, width: '100%' },
+        { padding: 2, width: '100%' },
         contentPosition === 'center' && {
           display: 'flex',
           height: '100%',
