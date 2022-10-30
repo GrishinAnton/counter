@@ -10,7 +10,7 @@ interface IProps {
   type: keyof IActionType;
 }
 
-export const EntityForm: React.FC<IProps> = ({ type }) => {
+export const EntityForm = ({ type }: IProps) => {
   const createEntity: IFormField[] = useMemo(
     () => [
       {

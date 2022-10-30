@@ -1,4 +1,4 @@
-import { FormControl, RadioGroup, RadioProps, RadioGroupProps } from '@material-ui/core';
+import { FormControl, RadioGroup, RadioProps, RadioGroupProps } from '@mui/material';
 import { Radio } from 'components/ui/Radio/Radio';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';

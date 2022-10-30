@@ -6,7 +6,7 @@ interface IProps {
   type: keyof IActionType;
 }
 
-const Entity: React.FC<IProps> = ({ type }) => {
+const Entity = ({ type }: IProps) => {
   const [typeView, setTypeView] = useState<keyof IActionType>(type);
   return <>{typeView === EActionType.CREATE && <CreateEntity />}</>;
 };

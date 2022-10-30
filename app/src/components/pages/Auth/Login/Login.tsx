@@ -1,6 +1,4 @@
-import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useHistory } from 'react-router';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
@@ -14,6 +12,8 @@ import { login } from '../../../../features/auth/api';
 import { CreateUserDto } from '../../../../api';
 import { EAuthType } from '../Auth';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
+import { useNavigate } from 'react-router-dom';
+import { ERoutes } from 'router/config';
 
 const schema = object().shape({
   email: emailValidation,
@@ -21,7 +21,7 @@ const schema = object().shape({
 });
 
 export const Login = observer(() => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const methods = useForm({
     mode: 'onChange',
@@ -38,7 +38,7 @@ export const Login = observer(() => {
       if (loginData && loginData.token) {
         UserStore.setUser(loginData);
         setDataToLocalStorage('user', loginData);
-        history.push('/');
+        navigate(ERoutes.HOME);
       }
     } catch (e) {
       ErrorNotification(e);

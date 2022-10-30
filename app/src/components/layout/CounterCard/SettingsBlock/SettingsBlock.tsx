@@ -1,20 +1,28 @@
 import React from 'react';
-import SettingsIcon from '@material-ui/icons/Settings';
 import { Grid } from 'components/ui/Grid/Grid';
 import { IconButton } from 'components/ui/IconButton/IconButton';
-import { settingsBlockUseStyles } from '../styles';
+import { Settings } from '@mui/icons-material';
 
 interface IProp {
   onClick: () => void;
 }
 
 export const SettingsBlock: React.FC<IProp> = ({ onClick }) => {
-  const classes = settingsBlockUseStyles();
-
   return (
-    <Grid container direction='row' className={classes.container}>
-      <IconButton className={classes.button} onClick={onClick}>
-        <SettingsIcon />
+    <Grid
+      container
+      direction='row'
+      sx={{
+        width: '100%',
+        height: '100%',
+        maxHeight: 34,
+        borderRadius: theme => theme.spacing(1 / 2),
+        border: '1px solid #fff',
+        marginTop: theme => theme.spacing(1),
+      }}
+    >
+      <IconButton sx={{ padding: 5 }} onClick={onClick}>
+        <Settings />
       </IconButton>
     </Grid>
   );

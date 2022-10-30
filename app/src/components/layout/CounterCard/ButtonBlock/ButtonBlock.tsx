@@ -1,8 +1,6 @@
 import { Box } from 'components/ui/Box/Box';
 import { ButtonBase } from 'components/ui/ButtonBase/ButtonBase';
 import React from 'react';
-import cx from 'classnames';
-import { buttonBlockUseStyles } from '../styles';
 
 interface IProps {
   onClick: () => void;
@@ -10,11 +8,19 @@ interface IProps {
 }
 
 export const ButtonBlock: React.FC<IProps> = ({ onClick, count }) => {
-  const classesCardButton = buttonBlockUseStyles();
-
   return (
-    <Box className={classesCardButton.container}>
-      <ButtonBase className={cx(classesCardButton.container, classesCardButton.button)} onClick={() => onClick()}>
+    <Box sx={{ width: '100%', height: '100%', borderRadius: theme => theme.spacing(1 / 2) }}>
+      <ButtonBase
+        sx={[
+          {
+            width: '100%',
+            height: '100%',
+            borderRadius: theme => theme.spacing(1 / 2),
+          },
+          { border: '1px solid #fff', color: '#fff', fontSize: 30, fontWeight: 'bold' },
+        ]}
+        onClick={() => onClick()}
+      >
         {count}
       </ButtonBase>
     </Box>

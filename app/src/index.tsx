@@ -1,28 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import { Router } from 'react-router-dom';
-import { createTheme } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { StylesProvider } from '@material-ui/styles';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { history } from './common/utils/history';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createRoot } from 'react-dom/client';
 
 const theme = createTheme();
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(
   <React.StrictMode>
-    <Router history={history}>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <StylesProvider injectFirst>
-          <App />
-        </StylesProvider>
+        <App />
       </ThemeProvider>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

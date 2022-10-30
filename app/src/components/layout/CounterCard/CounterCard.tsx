@@ -1,11 +1,9 @@
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import React from 'react';
 import { GetEntityDto, EntityAction } from 'api';
-import { useHistory } from 'react-router';
 
 import { Grid } from 'components/ui/Grid/Grid';
 import { Typography } from 'components/ui/Typography/Typography';
-import { counterCardUseStyles } from './styles';
 import { InformationBlock } from './InformationBlock/InformationBlock';
 import { SettingsBlock } from './SettingsBlock/SettingsBlock';
 import { ButtonBlock } from './ButtonBlock/ButtonBlock';
@@ -14,14 +12,14 @@ import { Notification } from '../Notification/Notification';
 import { ErrorNotification } from '../ErrorNotification/ErrorNotification';
 import EntityStore from '../../../store/EntityStore';
 import { ERoutes } from '../../../router/config';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   entity: GetEntityDto;
 }
 
 export const CounterCard: React.FC<IProps> = ({ entity }) => {
-  const classesContainer = counterCardUseStyles();
-  const history = useHistory();
+  const navigation = useNavigate();
 
   const handleButtonCountClick = async () => {
     if (entity.action === EntityAction.Increment) {
@@ -43,12 +41,21 @@ export const CounterCard: React.FC<IProps> = ({ entity }) => {
     }
   };
 
-  const handleSettingsButtonOnClick = () => history.push(`${entity.id}${ERoutes.VIEW_ENTITY}`);
+  const handleSettingsButtonOnClick = () => navigation(`${ERoutes.VIEW_ENTITY}/${entity.id}`);
 
   return (
     <CounterBlock>
-      <Grid container direction='column' alignItems='center' className={classesContainer.container}>
-        <Typography className={classesContainer.title}>{entity.name}</Typography>
+      <Grid
+        container
+        direction='column'
+        alignItems='center'
+        sx={{
+          padding: theme => theme.spacing(1),
+          backgroundColor: theme => theme.palette.primary.light,
+          borderRadius: theme => theme.spacing(1),
+        }}
+      >
+        <Typography sx={{ marginBottom: theme => theme.spacing(1), color: '#fff' }}>{entity.name}</Typography>
         <Grid container direction='row' spacing={1}>
           {/* Основной блок */}
           <Grid item xs={8}>

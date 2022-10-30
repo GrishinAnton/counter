@@ -1,7 +1,5 @@
-import React from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useHistory } from 'react-router';
 import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { dateStartValidation, validationString } from 'common/validation/validationSchema';
@@ -11,7 +9,6 @@ import { EActionType } from 'common/types/common.types';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { Grid } from 'components/ui/Grid/Grid';
-import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
 import { IEntityFields } from '../../../../common/types/entity.types';
@@ -20,6 +17,8 @@ import { createEntity } from '../../../../features/entity/api';
 import EntityStore from '../../../../store/EntityStore';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
+import { useNavigate } from 'react-router-dom';
+import { MAX_WIDTH } from 'theme';
 
 const schema = object().shape({
   name: validationString,
@@ -28,8 +27,7 @@ const schema = object().shape({
 });
 
 const CreateEntity = observer(() => {
-  const classes = createEntityStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const methods = useForm<IEntityFields>({
     mode: 'onChange',
@@ -56,7 +54,7 @@ const CreateEntity = observer(() => {
 
       if (createdEntity) {
         EntityStore.addEntity(createdEntity);
-        history.push(ERoutes.HOME);
+        navigate(ERoutes.HOME);
         Notification({ message: 'Сущность добавлена' });
       }
     } catch (e) {
@@ -65,7 +63,7 @@ const CreateEntity = observer(() => {
   };
 
   return (
-    <Grid container className={classes.container}>
+    <Grid container sx={{ maxWidth: MAX_WIDTH }}>
       <Header title='Добавьте сущность' />
       <CounterBlock>
         <FormProvider {...methods}>

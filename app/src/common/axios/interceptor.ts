@@ -25,9 +25,8 @@ export const intercept = () => {
         // config.headers.Authorization = token.replace(/[а-яА-Я]/g, '');
         config.headers.Authorization = `Bearer ${user.token}`;
       }
-
-      return config;
     }
+    return config;
   });
   Axios.interceptors.response.use(
     response => response,

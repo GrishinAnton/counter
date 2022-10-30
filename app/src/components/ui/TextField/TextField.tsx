@@ -1,4 +1,3 @@
-import React from 'react';
-import { TextField as UiTextField, TextFieldProps } from '@material-ui/core';
+import { TextField as UiTextField, TextFieldProps } from '@mui/material';
 
-export const TextField: React.FC<TextFieldProps> = ({ ...rest }) => <UiTextField variant='outlined' {...rest} />;
+export const TextField = ({ ...rest }: TextFieldProps) => <UiTextField variant='outlined' {...rest} />;

@@ -6,6 +6,7 @@ module.exports = {
   'plugins': ['react-hooks', 'prettier', '@typescript-eslint'],
   'parserOptions': {
     'project': './tsconfig.json',
+    'tsconfigRootDir': __dirname,
   },
   'settings': {
     'import/resolver': {

@@ -8,7 +8,7 @@ interface IProps {
   type: EAuthType;
 }
 
-export const AuthForm: React.FC<IProps> = ({ type }) => {
+export const AuthForm = ({ type }: IProps) => {
   const authForm: IFormField[] = useMemo(
     () => [
       {
@@ -59,6 +59,7 @@ export const AuthForm: React.FC<IProps> = ({ type }) => {
         if (type === EAuthType.REGISTER && registerForm.includes(field.name)) {
           return form;
         }
+        return null;
       })}
     </>
   );

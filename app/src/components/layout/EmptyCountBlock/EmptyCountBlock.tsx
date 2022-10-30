@@ -1,12 +1,11 @@
-import React from 'react';
 import { Button } from 'components/ui/Button/Button';
 import { Typography } from 'components/ui/Typography/Typography';
-import { useHistory } from 'react-router';
 import { ERoutes } from 'router/config';
 import { Box } from 'components/ui/Box/Box';
+import { useNavigate } from 'react-router-dom';
 
 export const EmptyCountBlock = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -14,7 +13,7 @@ export const EmptyCountBlock = () => {
         <Typography align='center'>У вас нет сущностей, можно создать.</Typography>
       </Box>
       <Box display='flex' justifyContent='center'>
-        <Button color='primary' variant='contained' onClick={() => history.push(ERoutes.CREATE_ENTITY)}>
+        <Button color='primary' variant='contained' onClick={() => navigate(ERoutes.CREATE_ENTITY)}>
           Создать сущность
         </Button>
       </Box>

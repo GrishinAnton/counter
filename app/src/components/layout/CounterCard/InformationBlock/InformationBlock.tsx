@@ -1,10 +1,9 @@
 import React from 'react';
-import BusinessIcon from '@material-ui/icons/Business';
 import { format } from 'date-fns';
 import { Grid } from 'components/ui/Grid/Grid';
 import { Box } from 'components/ui/Box/Box';
 import { Typography } from '../../../ui/Typography/Typography';
-import { informationBlockUseStyles } from '../styles';
+import { Business } from '@mui/icons-material';
 
 interface IProps {
   startDate: string;
@@ -12,14 +11,23 @@ interface IProps {
 }
 
 export const InformationBlock: React.FC<IProps> = ({ startDate = new Date(), finishDate }) => {
-  const classes = informationBlockUseStyles();
-
   return (
-    <Grid container direction='row' className={classes.container}>
+    <Grid
+      container
+      direction='row'
+      sx={{
+        width: '100%',
+        height: '100%',
+        minHeight: 50,
+        borderRadius: theme => theme.spacing(1 / 2),
+        color: '#fff',
+        border: '1px solid #fff',
+      }}
+    >
       <Grid item xs={3}>
-        <Box className={classes.iconContainer}>
-          <Box className={classes.icon}>
-            <BusinessIcon />
+        <Box sx={{ display: 'flex', height: '100%' }}>
+          <Box sx={{ color: '#fff', margin: 'auto' }}>
+            <Business />
           </Box>
         </Box>
       </Grid>

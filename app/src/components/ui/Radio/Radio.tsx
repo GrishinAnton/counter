@@ -1,10 +1,8 @@
-import { FormControlLabel, FormControlLabelProps, Radio as UiRadio } from '@material-ui/core';
+import { FormControlLabel, FormControlLabelProps, Radio as UiRadio } from '@mui/material';
 import React from 'react';
 
-interface IProps {
+interface IProps extends Omit<FormControlLabelProps, 'control'> {
   label: string;
 }
 
-export const Radio: React.FC<IProps & Omit<FormControlLabelProps, 'control'>> = ({ ...rest }) => (
-  <FormControlLabel {...rest} control={<UiRadio />} />
-);
+export const Radio = ({ ...rest }: IProps) => <FormControlLabel {...rest} control={<UiRadio />} />;

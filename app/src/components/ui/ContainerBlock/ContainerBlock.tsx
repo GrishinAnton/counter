@@ -1,30 +1,25 @@
-import { makeStyles } from '@material-ui/core';
-import React from 'react';
-import cx from 'classnames';
 import { Box } from '../Box/Box';
-
-const containerBlockStyles = makeStyles(() => ({
-  container: {
-    padding: 16,
-    width: '100%',
-  },
-  contentCenter: {
-    display: 'flex',
-    height: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-}));
 
 interface IProps {
   contentPosition?: 'center' | 'default';
+  children?: React.ReactNode;
 }
 
-export const CounterBlock: React.FC<IProps> = ({ children, contentPosition = 'default' }) => {
-  const classes = containerBlockStyles();
-
-  const containerClasses = cx({ [classes.container]: true, [classes.contentCenter]: contentPosition === 'center' });
-
-  return <Box className={containerClasses}>{children}</Box>;
+export const CounterBlock = ({ children, contentPosition = 'default' }: IProps) => {
+  return (
+    <Box
+      sx={[
+        { padding: 16, width: '100%' },
+        contentPosition === 'center' && {
+          display: 'flex',
+          height: '100%',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+      ]}
+    >
+      {children}
+    </Box>
+  );
 };

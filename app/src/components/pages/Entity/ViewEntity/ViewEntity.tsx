@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CounterBlock } from 'components/ui/ContainerBlock/ContainerBlock';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useHistory, useParams } from 'react-router';
 import { object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationString } from 'common/validation/validationSchema';
@@ -11,11 +10,9 @@ import { IconButton } from 'components/ui/IconButton/IconButton';
 import { Modal } from 'components/ui/Modal/Modal';
 import { ModalFooter } from 'components/ui/Modal/ModalFooter';
 import { Grid } from 'components/ui/Grid/Grid';
-import { Close, DeleteForever, Edit, Save } from '@material-ui/icons';
 
 import { Notification } from 'components/layout/Notification/Notification';
 import { EActionType, IActionType } from 'common/types/common.types';
-import { createEntityStyles } from '../common/styles/styles';
 import { EntityForm } from '../Ui/EntityForm';
 import { Header } from '../Ui/Header';
 import { IViewEntityFields } from '../../../../common/types/entity.types';
@@ -26,6 +23,9 @@ import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotifi
 import { FooterWithPrimaryButton } from '../../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { Typography } from '../../../ui/Typography/Typography';
 import { EntityFactory } from '../common/factory/factory';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Close, DeleteForever, Edit, Save } from '@mui/icons-material';
+import { MAX_WIDTH } from 'theme';
 
 const schema = object().shape({
   name: validationString,
@@ -35,9 +35,8 @@ const schema = object().shape({
 // TODO Мы должны уметь просматривать, редактировать, удалять, клонировать,
 
 const ViewEntity = observer(() => {
-  const classes = createEntityStyles();
-  const history = useHistory();
-  const { id }: { id: string | undefined } = useParams();
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [type, setType] = useState<keyof IActionType>(EActionType.VIEW);
@@ -97,7 +96,7 @@ const ViewEntity = observer(() => {
     if (EntityStore.entity) {
       try {
         await deleteEntity(String(EntityStore.entity.id));
-        history.push(ERoutes.HOME);
+        navigate(ERoutes.HOME);
         Notification({ message: 'Сущность удалена' });
       } catch (e) {
         ErrorNotification(e);
@@ -123,7 +122,7 @@ const ViewEntity = observer(() => {
 
   return (
     <>
-      <Grid container className={classes.container}>
+      <Grid container sx={{ maxWidth: MAX_WIDTH }}>
         <Header title='Просмотр сущности' />
         <CounterBlock>
           <FormProvider {...methods}>

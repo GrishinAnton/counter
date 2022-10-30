@@ -1,29 +1,30 @@
-import React from 'react';
-import { makeStyles, Toolbar } from '@material-ui/core';
-import cx from 'classnames';
-
-const appBarStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    position: ({ position }: { position: IProps['position'] }) => position,
-    zIndex: 10,
-    backgroundColor: theme.palette.info.dark,
-    color: '#fff',
-  },
-}));
+import { Toolbar } from '@mui/material';
+import { Box } from '../Box/Box';
 
 interface IProps {
   className?: string;
   position?: 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
+  children: React.ReactNode;
 }
 
-export const AppBar: React.FC<IProps> = ({ children, className = '', position = 'relative' }) => {
-  const classes = appBarStyles({ position });
+export const AppBar = ({ children, className = '', position = 'relative' }: IProps) => {
   return (
-    <div className={cx(classes.root, className)}>
+    <Box
+      sx={[
+        {
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          position: position,
+          zIndex: 10,
+          backgroundColor: theme => theme.palette.info.dark,
+          color: '#fff',
+        },
+        { top: 'auto', bottom: 0, maxWidth: 'inherit', width: 'inherit' },
+      ]}
+      className={className}
+    >
       <Toolbar>{children}</Toolbar>
-    </div>
+    </Box>
   );
 };

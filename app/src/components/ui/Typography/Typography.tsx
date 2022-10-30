@@ -1,8 +1,5 @@
-import { Typography as UiTypography, TypographyProps } from '@material-ui/core';
-import React from 'react';
+import { Typography as UiTypography, TypographyProps } from '@mui/material';
 
-interface IProps {}
+interface IProps extends TypographyProps {}
 
-export const Typography: React.FC<IProps & TypographyProps> = ({ children, ...rest }) => (
-  <UiTypography {...rest}>{children}</UiTypography>
-);
+export const Typography = ({ children, ...rest }: IProps) => <UiTypography {...rest}>{children}</UiTypography>;

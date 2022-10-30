@@ -1,5 +1,3 @@
-import React from 'react';
-import { useHistory } from 'react-router';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
@@ -18,6 +16,8 @@ import { EAuthType } from '../Auth';
 import { ErrorNotification } from '../../../layout/ErrorNotification/ErrorNotification';
 import UserStore from '../../../../store/UserStore';
 import { setDataToLocalStorage } from '../../../../common/utils/localStorage';
+import { useNavigate } from 'react-router-dom';
+import { ERoutes } from 'router/config';
 
 const schema = object().shape({
   email: emailValidation,
@@ -26,7 +26,7 @@ const schema = object().shape({
 });
 
 export const Register = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const methods = useForm({
     mode: 'onChange',
@@ -47,7 +47,7 @@ export const Register = () => {
       if (registerData && registerData.token) {
         UserStore.setUser(registerData);
         setDataToLocalStorage('user', registerData);
-        history.push('/');
+        navigate(ERoutes.HOME);
       }
     } catch (e) {
       ErrorNotification(e);

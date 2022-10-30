@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { EmptyCountBlock } from 'components/layout/EmptyCountBlock/EmptyCountBlock';
 import { CounterCard } from 'components/layout/CounterCard/CounterCard';
-import { useHistory } from 'react-router';
 import { observer } from 'mobx-react-lite';
 
 import { Loading } from 'components/ui/Loading/Loading';
@@ -11,12 +10,13 @@ import { getEntities } from '../../../features/entity/api';
 import { ErrorNotification } from '../../layout/ErrorNotification/ErrorNotification';
 import { FooterWithPrimaryButton } from '../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { ERoutes } from '../../../router/config';
+import { useNavigate } from 'react-router-dom';
 
 const Home = observer(() => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const entities = EntityStore.getEntities();
-  const history = useHistory();
 
   useEffect(() => {
     const loadData = async () => {
@@ -48,7 +48,7 @@ const Home = observer(() => {
           {entities.map(entity => (
             <CounterCard entity={entity} key={entity.id} />
           ))}
-          <FooterWithPrimaryButton onClick={() => history.push(ERoutes.CREATE_ENTITY)} />
+          <FooterWithPrimaryButton onClick={() => navigate(ERoutes.CREATE_ENTITY)} />
         </>
       ) : (
         <CounterBlock contentPosition='center'>

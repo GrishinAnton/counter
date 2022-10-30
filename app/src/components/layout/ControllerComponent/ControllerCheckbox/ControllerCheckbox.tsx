@@ -1,14 +1,13 @@
-import React from 'react';
-import { CheckboxProps } from '@material-ui/core';
 import { IFormField } from 'common/types/common.types';
 import { Controller, useFormContext } from 'react-hook-form';
 import { Checkbox } from 'components/ui/Checkbox/Checkbox';
+import { CheckboxProps } from '@mui/material';
 
-interface IProps {
+interface IProps extends CheckboxProps {
   fieldProp: IFormField;
 }
 
-export const ControllerCheckbox: React.FC<IProps & CheckboxProps> = ({ fieldProp, ...rest }) => {
+export const ControllerCheckbox = ({ fieldProp, ...rest }: IProps) => {
   const { control } = useFormContext();
 
   return (

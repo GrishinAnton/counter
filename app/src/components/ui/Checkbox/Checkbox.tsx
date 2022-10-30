@@ -1,10 +1,9 @@
-import { Checkbox as UiCheckbox, CheckboxProps, FormControlLabel } from '@material-ui/core';
-import React from 'react';
+import { Checkbox as UiCheckbox, CheckboxProps, FormControlLabel } from '@mui/material';
 
-interface IProps {
+export interface ICheckboxProps extends CheckboxProps {
   label: string;
 }
 
-export const Checkbox: React.FC<IProps & CheckboxProps> = ({ ...rest }) => (
+export const Checkbox = ({ ...rest }: ICheckboxProps) => (
   <FormControlLabel control={<UiCheckbox {...rest} color='primary' />} label={rest.label} />
 );
