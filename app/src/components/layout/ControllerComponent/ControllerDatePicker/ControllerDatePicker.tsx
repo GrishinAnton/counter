@@ -7,8 +7,11 @@ interface IProps {
   fieldProp: IFormField;
 }
 
-export const ControllerDatePicker = ({ fieldProp, ...rest }: IProps) => {
-  const { control } = useFormContext();
+export const ControllerDatePicker = ({ fieldProp }: IProps) => {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <Controller
@@ -17,13 +20,13 @@ export const ControllerDatePicker = ({ fieldProp, ...rest }: IProps) => {
       render={({ field: { ref, ...other } }) => (
         <DatePicker
           {...other}
-          innerRef={ref}
+          label={fieldProp.label}
           disabled={fieldProp.disabled}
           fullWidth
-          placeholder={fieldProp.placeholder}
           id={fieldProp.name}
-          label={fieldProp.label}
           required={fieldProp.required}
+          error={fieldProp.name in errors}
+          helperText={errors[fieldProp.name]?.message as string}
         />
       )}
     />

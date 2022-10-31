@@ -3,8 +3,9 @@ import { Typography } from 'components/ui/Typography/Typography';
 import { ERoutes } from 'router/config';
 import { Box } from 'components/ui/Box/Box';
 import { useNavigate } from 'react-router-dom';
+import { memo } from 'react';
 
-export const EmptyCountBlock = () => {
+export const EmptyCountBlock = memo(() => {
   const navigate = useNavigate();
 
   return (
@@ -19,4 +20,4 @@ export const EmptyCountBlock = () => {
       </Box>
     </>
   );
-};
+});

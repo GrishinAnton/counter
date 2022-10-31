@@ -5,6 +5,7 @@ import { ControllerDatePicker } from 'components/layout/ControllerComponent/Cont
 import { ControllerCheckbox } from 'components/layout/ControllerComponent/ControllerCheckbox/ControllerCheckbox';
 import { ControllerRadio } from 'components/layout/ControllerComponent/ControllerRadio/ControllerRadio';
 import { EntityAction } from '../../../../api';
+import { Box } from 'components/ui/Box/Box';
 
 interface IProps {
   type: keyof IActionType;
@@ -87,13 +88,25 @@ export const EntityForm = ({ type }: IProps) => {
     <>
       {createEntity.map(field => {
         if (field.fieldType === 'input') {
-          return <ControllerTextField key={field.name} fieldProp={field} />;
+          return (
+            <Box key={field.name} sx={{ mt: 2, mb: 2 }}>
+              <ControllerTextField key={field.name} fieldProp={field} />
+            </Box>
+          );
         }
         if (field.fieldType === 'date') {
-          return <ControllerDatePicker key={field.name} fieldProp={field} />;
+          return (
+            <Box key={field.name} sx={{ mt: 2, mb: 2 }}>
+              <ControllerDatePicker key={field.name} fieldProp={field} />
+            </Box>
+          );
         }
         if (field.fieldType === 'checkbox') {
-          return <ControllerCheckbox key={field.name} fieldProp={field} />;
+          return (
+            <Box key={field.name} sx={{ mt: 2, mb: 2 }}>
+              <ControllerCheckbox key={field.name} fieldProp={field} />
+            </Box>
+          );
         }
 
         return null;

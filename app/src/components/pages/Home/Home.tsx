@@ -1,41 +1,35 @@
-import React, { useEffect, useState } from 'react';
 import { EmptyCountBlock } from 'components/layout/EmptyCountBlock/EmptyCountBlock';
-import { CounterCard } from 'components/layout/CounterCard/CounterCard';
 import { observer } from 'mobx-react-lite';
 
-import { Loading } from 'components/ui/Loading/Loading';
 import { CounterBlock } from '../../ui/ContainerBlock/ContainerBlock';
 import EntityStore from '../../../store/EntityStore';
-import { getEntities } from '../../../features/entity/api';
-import { ErrorNotification } from '../../layout/ErrorNotification/ErrorNotification';
+
+import Entities from './Entities';
 import { FooterWithPrimaryButton } from '../../ui/FooterWithPrimaryButton/FooterWithButtons';
 import { ERoutes } from '../../../router/config';
 import { useNavigate } from 'react-router-dom';
+import { Loading } from 'components/ui/Loading/Loading';
+import { useState, useEffect } from 'react';
+import { EState } from 'features/types';
 
 const Home = observer(() => {
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const entities = EntityStore.getEntities();
+  const entities = EntityStore;
 
   useEffect(() => {
+    if (entities.state === EState.PENDING) return;
     const loadData = async () => {
-      try {
-        setLoading(true);
-        const entitiesData = await getEntities();
+      setLoading(true);
 
-        if (entitiesData && entitiesData.length) {
-          EntityStore.setEntities(entitiesData);
-        }
-      } catch (e) {
-        ErrorNotification(e);
-      } finally {
-        setLoading(false);
-      }
+      await entities.fetchEntities();
+
+      setLoading(false);
     };
 
     loadData();
-  }, []);
+  }, [entities]);
 
   if (loading) {
     return <Loading open />;
@@ -43,11 +37,9 @@ const Home = observer(() => {
 
   return (
     <>
-      {entities.length ? (
+      {entities.getEntities.length ? (
         <>
-          {entities.map(entity => (
-            <CounterCard entity={entity} key={entity.id} />
-          ))}
+          <Entities />
           <FooterWithPrimaryButton onClick={() => navigate(ERoutes.CREATE_ENTITY)} />
         </>
       ) : (

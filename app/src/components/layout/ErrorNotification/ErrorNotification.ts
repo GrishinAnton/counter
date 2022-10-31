@@ -4,6 +4,7 @@ import { Notification } from '../Notification/Notification';
 export const ErrorNotification = (error: any) => {
   if (error.message) {
     Notification({ message: error.message, type: 'error' });
+    return;
   }
 
   if (_.isArray(error) && error.length) {
@@ -13,6 +14,7 @@ export const ErrorNotification = (error: any) => {
     });
 
     Notification({ message, type: 'error' });
+    return;
   }
 
   Notification({ message: 'Ошибка', type: 'error' });

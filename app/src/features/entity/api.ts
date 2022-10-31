@@ -11,7 +11,7 @@ export const getEntityById = (id: string) =>
     .entityControllerGetEntityById(id)
     .then(res => res.data);
 
-export const getEntities = () =>
+export const getEntitiesApi = () =>
   DefaultApiFactory(undefined, API_PREFIX)
     .entityControllerGetEntities()
     .then(res => res.data);

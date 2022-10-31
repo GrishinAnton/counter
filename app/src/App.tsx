@@ -11,7 +11,7 @@ import { observer } from 'mobx-react-lite';
 import { Auth } from 'components/pages/Auth/Auth';
 import UserStore from './store/UserStore';
 import Home from './components/pages/Home/Home';
-import { intercept } from './common/axios/interceptor';
+
 import { useEffect } from 'react';
 
 export const App = observer(() => {
@@ -19,10 +19,10 @@ export const App = observer(() => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) navigate(ERoutes.LOGIN);
-  }, [user, navigate]);
-
-  intercept();
+    if (!user?.email) {
+      navigate(ERoutes.LOGIN);
+    }
+  }, [user?.email, navigate]);
 
   return (
     <>
