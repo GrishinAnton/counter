@@ -37,7 +37,7 @@ const Home = observer(() => {
 
   return (
     <>
-      {entities.getEntities.length ? (
+      {entities.entities.length ? (
         <>
           <Entities />
           <FooterWithPrimaryButton onClick={() => navigate(ERoutes.CREATE_ENTITY)} />

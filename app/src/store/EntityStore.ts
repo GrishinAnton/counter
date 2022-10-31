@@ -47,10 +47,7 @@ class EntityStore {
       const entitiesData = await getEntitiesApi();
 
       runInAction(() => {
-        if (entitiesData && entitiesData.length) {
-          this.setEntities(entitiesData);
-        }
-
+        this.setEntities(entitiesData);
         this.state = EState.SUCCESS;
       });
     } catch (e) {

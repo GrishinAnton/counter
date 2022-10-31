@@ -21,7 +21,7 @@ export const SettingsBlock: React.FC<IProp> = ({ onClick }) => {
         marginTop: theme => theme.spacing(1),
       }}
     >
-      <IconButton sx={{ padding: 5 }} onClick={onClick}>
+      <IconButton sx={{ padding: 0 }} onClick={onClick}>
         <Settings />
       </IconButton>
     </Grid>
